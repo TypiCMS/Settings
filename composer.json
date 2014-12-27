@@ -15,7 +15,7 @@
             "migrations"
         ],
         "psr-4": {
-            "TypiCMS\\Modules\\Settings\\": ""
+            "TypiCMS\\Modules\\Settings\\": "src/"
         }
     },
     "minimum-stability": "stable"
