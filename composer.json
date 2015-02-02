@@ -13,8 +13,8 @@
     },
     "autoload": {
         "classmap": [
-            "database/migrations",
-            "database/seeds"
+            "src/migrations",
+            "src/seeds"
         ],
         "psr-4": {
             "TypiCMS\\Modules\\Settings\\": "src/"
