@@ -31,7 +31,7 @@ class AdminController extends AdminSimpleController
     public function index()
     {
         $data = $this->repository->getAll(array(), true);
-        $this->layout->content = View::make('settings.admin.index')
+        return view('settings.admin.index')
             ->withData($data);
     }
 
@@ -48,7 +48,7 @@ class AdminController extends AdminSimpleController
         $data['langChooser'] = Input::get('langChooser', 0);
         $data['authPublic']  = Input::get('authPublic', 0);
         $data['register']    = Input::get('register', 0);
-        foreach (Config::get('app.locales') as $locale) {
+        foreach (Config::get('translatable.locales') as $locale) {
             $data[$locale]['status'] = Input::get($locale.'.status', 0);
         }
 
