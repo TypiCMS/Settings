@@ -1,3 +1,5 @@
+@extends('core::admin.master')
+
 @section('main')
 
 <h1>{{ ucfirst(trans('global.settings')) }}</h1>
@@ -6,11 +8,12 @@
 
     <div class="col-sm-6">
 
-    {{ Form::model($data, array('method' => 'post', 'role' => 'form')) }}
+    {!! BootForm::open()->put()->role('form') !!}
+    {!! BootForm::bind($data) !!}
 
         @include('settings.admin._form')
 
-    {{ Form::close() }}
+    {!! BootForm::close() !!}
 
     </div>
 
@@ -28,7 +31,7 @@
             <tbody>
                 <tr>
                     <td class="col-sm-6">@lang('settings::global.Environment')</td>
-                    <td class="col-sm-6"><b>{{ App::environment(); }}</b></td>
+                    <td class="col-sm-6"><b>{{ App::environment() }}</b></td>
                 </tr>
                 <tr>
                     <td>@lang('settings::global.System locales')</td>
@@ -40,7 +43,7 @@
                 </tr>
                 <tr>
                     <td>@lang('settings::global.Active locale')</td>
-                    <td><b>{{ Config::get('app.locale'); }}</b></td>
+                    <td><b>{{ Config::get('app.locale') }}</b></td>
                 </tr>
                 <tr>
                     <td>@lang('settings::global.Cache')</td>
