@@ -14,12 +14,12 @@
         <div class="col-sm-9 form-group">
             <div class="input-group">
                 <span class="input-group-addon">{{ strtoupper($lang) }}</span>
-                <input class="form-control" type="text" name="{{ $lang }}[websiteTitle]" value="{{ $data->$lang->websiteTitle }}">
+                <input class="form-control" type="text" name="{{ $lang }}[websiteTitle]" value="@if(isset($data->$lang)){{ $data->$lang->websiteTitle }}@endif">
             </div>
         </div>
         <div class="col-sm-3 checkbox">
             <label>
-                <input type="checkbox" name="{{ $lang }}[status]" value="1" @if($data->$lang->status)checked @endif> @lang('validation.attributes.online')
+                <input type="checkbox" name="{{ $lang }}[status]" value="1" @if(isset($data->$lang) and $data->$lang->status)checked @endif> @lang('validation.attributes.online')
             </label>
         </div>
     </div>
