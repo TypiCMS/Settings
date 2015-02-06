@@ -17,10 +17,9 @@ class ModuleProvider extends ServiceProvider
 
     public function boot()
     {
-        // Bring in the routes
-        require __DIR__ . '/../routes.php';
-
-        // Set config from DB
+        /**
+         * Get configuration from DB and store it in the container
+         */
         $TypiCMSConfig = app('TypiCMS\Modules\Settings\Repositories\SettingInterface')
             ->getAllToArray();
         Config::set('typicms', $TypiCMSConfig);
@@ -40,6 +39,11 @@ class ModuleProvider extends ServiceProvider
     {
 
         $app = $this->app;
+
+        /**
+         * Register route service provider
+         */
+        $app->register('TypiCMS\Modules\Settings\Providers\RouteServiceProvider');
 
         $app->bind('TypiCMS\Modules\Settings\Repositories\SettingInterface', function (Application $app) {
             $repository = new EloquentSetting(new Setting);
