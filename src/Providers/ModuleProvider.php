@@ -1,21 +1,16 @@
 <?php
 namespace TypiCMS\Modules\Settings\Providers;
 
-use Lang;
-use View;
 use Config;
-use Illuminate\Support\ServiceProvider;
 use Illuminate\Foundation\Application;
-
-// Model
+use Illuminate\Support\ServiceProvider;
+use Lang;
+use Settings;
 use TypiCMS\Modules\Settings\Models\Setting;
-
-// Repo
-use TypiCMS\Modules\Settings\Repositories\EloquentSetting;
-
-// Cache
 use TypiCMS\Modules\Settings\Repositories\CacheDecorator;
+use TypiCMS\Modules\Settings\Repositories\EloquentSetting;
 use TypiCMS\Services\Cache\LaravelCache;
+use View;
 
 class ModuleProvider extends ServiceProvider
 {
@@ -25,8 +20,13 @@ class ModuleProvider extends ServiceProvider
         // Bring in the routes
         require __DIR__ . '/../routes.php';
 
+        // Set config from DB
+        $TypiCMSConfig = app('TypiCMS\Modules\Settings\Repositories\SettingInterface')
+            ->getAllToArray();
+        Config::set('typicms', $TypiCMSConfig);
+
         // Add dirs
-        View::addLocation(__DIR__ . '/../Views');
+        View::addNamespace('settings', __DIR__ . '/../views/');
         $this->loadTranslationsFrom(__DIR__ . '/../lang', 'settings');
         $this->publishes([
             __DIR__ . '/../config/' => config_path('typicms/settings'),
@@ -50,5 +50,6 @@ class ModuleProvider extends ServiceProvider
 
             return new CacheDecorator($repository, $laravelCache);
         });
+
     }
 }

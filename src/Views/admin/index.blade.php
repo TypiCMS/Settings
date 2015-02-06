@@ -8,10 +8,11 @@
 
     <div class="col-sm-6">
 
-    {!! BootForm::open()->put()->role('form') !!}
+    {!! BootForm::open()->role('form') !!}
     {!! BootForm::bind($data) !!}
+    {!! BootForm::token() !!}
 
-        @include('settings.admin._form')
+        @include('settings::admin._form')
 
     {!! BootForm::close() !!}
 
