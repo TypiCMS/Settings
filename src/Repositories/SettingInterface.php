@@ -7,13 +7,11 @@ interface SettingInterface
 {
 
     /**
-     * Get all models
+     * Get all settings
      *
-     * @param  boolean  $all  Show published or all
-     * @param  array    $with Eager load related models
      * @return stdClass
      */
-    public function getAll(array $with = array(), $all = false);
+    public function getAll();
 
     /**
      * Update an existing item

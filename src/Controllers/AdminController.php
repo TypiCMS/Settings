@@ -30,7 +30,7 @@ class AdminController extends AdminSimpleController
      */
     public function index()
     {
-        $data = $this->repository->getAll(array(), true);
+        $data = $this->repository->getAll();
         return view('settings::admin.index')
             ->withData($data);
     }

@@ -14,15 +14,13 @@ class CacheDecorator implements SettingInterface
     }
 
     /**
-     * Get all models
+     * Get all settings
      *
-     * @param  boolean  $all  Show published or all
-     * @param  array    $with Eager load related models
-     * @return Collection
+     * @return stdClass
      */
-    public function getAll(array $with = array(), $all = false)
+    public function getAll()
     {
-        $cacheKey = md5('Settings' . implode('.', $with));
+        $cacheKey = md5('Settings');
 
         if ($this->cache->has($cacheKey)) {
             return $this->cache->get($cacheKey);
