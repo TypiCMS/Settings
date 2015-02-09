@@ -20,16 +20,16 @@ class ModuleProvider extends ServiceProvider
         /**
          * Get configuration from DB and store it in the container
          */
-        $TypiCMSConfig = app('TypiCMS\Modules\Settings\Repositories\SettingInterface')
+        $TypiCMSConfig = $this->app->make('TypiCMS\Modules\Settings\Repositories\SettingInterface')
             ->getAllToArray();
-        Config::set('typicms', $TypiCMSConfig);
+
+        // merge config
+        $config = $this->app['config']->get('typicms', []);
+        $this->app['config']->set('typicms', array_merge($TypiCMSConfig, $config));
 
         // Add dirs
         View::addNamespace('settings', __DIR__ . '/../views/');
         $this->loadTranslationsFrom(__DIR__ . '/../lang', 'settings');
-        $this->publishes([
-            __DIR__ . '/../config/' => config_path('typicms/settings'),
-        ], 'config');
         $this->publishes([
             __DIR__ . '/../migrations/' => base_path('/database/migrations'),
         ], 'migrations');
