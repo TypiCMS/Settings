@@ -1,5 +1,5 @@
 <?php
-namespace TypiCMS\Modules\Settings\Controllers;
+namespace TypiCMS\Modules\Settings\Http\Controllers;
 
 use View;
 use Cache;
@@ -13,7 +13,7 @@ use McCool\DatabaseBackup\BackupProcedure;
 use McCool\DatabaseBackup\Dumpers\MysqlDumper;
 use McCool\DatabaseBackup\Processors\ShellProcessor;
 use TypiCMS\Modules\Settings\Repositories\SettingInterface;
-use TypiCMS\Controllers\AdminSimpleController;
+use TypiCMS\Http\Controllers\AdminSimpleController;
 
 class AdminController extends AdminSimpleController
 {
