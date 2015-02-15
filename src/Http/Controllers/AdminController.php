@@ -1,20 +1,20 @@
 <?php
 namespace TypiCMS\Modules\Settings\Http\Controllers;
 
-use View;
 use Cache;
-use Input;
 use Config;
-use Response;
-use Redirect;
-use Notification;
-use Symfony\Component\Process\Process;
+use Input;
 use McCool\DatabaseBackup\BackupProcedure;
 use McCool\DatabaseBackup\Dumpers\MysqlDumper;
 use McCool\DatabaseBackup\Processors\ShellProcessor;
+use Notification;
+use Redirect;
+use Response;
+use Symfony\Component\Process\Process;
+use TypiCMS\Http\Controllers\AdminSimpleController;
 use TypiCMS\Modules\Settings\Http\Requests\FormRequest;
 use TypiCMS\Modules\Settings\Repositories\SettingInterface;
-use TypiCMS\Http\Controllers\AdminSimpleController;
+use View;
 
 class AdminController extends AdminSimpleController
 {
