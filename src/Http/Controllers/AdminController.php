@@ -12,6 +12,7 @@ use Symfony\Component\Process\Process;
 use McCool\DatabaseBackup\BackupProcedure;
 use McCool\DatabaseBackup\Dumpers\MysqlDumper;
 use McCool\DatabaseBackup\Processors\ShellProcessor;
+use TypiCMS\Modules\Settings\Http\Requests\FormRequest;
 use TypiCMS\Modules\Settings\Repositories\SettingInterface;
 use TypiCMS\Http\Controllers\AdminSimpleController;
 
