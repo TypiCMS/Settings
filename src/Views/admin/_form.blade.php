@@ -8,13 +8,13 @@
     </div>
 </div>
 
-<label>@lang('validation.attributes.websiteTitle')</label>
+<label>@lang('validation.attributes.website_title')</label>
 @foreach ($locales as $lang)
     <div class="row">
         <div class="col-sm-9 form-group">
             <div class="input-group">
                 <span class="input-group-addon">{{ strtoupper($lang) }}</span>
-                <input class="form-control" type="text" name="{{ $lang }}[websiteTitle]" value="@if(isset($data->$lang)){{ $data->$lang->websiteTitle }}@endif">
+                <input class="form-control" type="text" name="{{ $lang }}[website_title]" value="@if(isset($data->$lang)){{ $data->$lang->websiteTitle }}@endif">
             </div>
         </div>
         <div class="col-sm-3 checkbox">
@@ -25,12 +25,11 @@
     </div>
 @endforeach
 
-{!! BootForm::text(trans('validation.attributes.webmasterEmail'), 'webmasterEmail') !!}
-{!! BootForm::text(trans('validation.attributes.welcomeMessageURL'), 'welcomeMessageURL') !!}
-{!! BootForm::textarea(trans('validation.attributes.welcomeMessage'), 'welcomeMessage') !!}
-{!! BootForm::select(trans('validation.attributes.welcomeMessage'), 'adminLocale', array_combine($locales, $locales)) !!}
-{!! BootForm::text(trans('validation.attributes.typekitCode'), 'typekitCode') !!}
-{!! BootForm::text(trans('validation.attributes.googleAnalyticsCode'), 'googleAnalyticsCode') !!}
-{!! BootForm::checkbox(trans('validation.attributes.langChooser'), 'langChooser') !!}
-{!! BootForm::checkbox(trans('validation.attributes.authPublic'), 'authPublic') !!}
+{!! BootForm::email(trans('validation.attributes.webmaster_email'), 'webmaster_email') !!}
+{!! BootForm::textarea(trans('validation.attributes.welcome_message'), 'welcome_message') !!}
+{!! BootForm::select(trans('validation.attributes.admin_locale'), 'admin_locale', array_combine($locales, $locales)) !!}
+{!! BootForm::text(trans('validation.attributes.typekit_code'), 'typekit_code') !!}
+{!! BootForm::text(trans('validation.attributes.google_analytics_code'), 'google_analytics_code') !!}
+{!! BootForm::checkbox(trans('validation.attributes.lang_chooser'), 'lang_chooser') !!}
+{!! BootForm::checkbox(trans('validation.attributes.auth_public'), 'auth_public') !!}
 {!! BootForm::checkbox(trans('validation.attributes.registration allowed'), 'register') !!}

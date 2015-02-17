@@ -46,9 +46,9 @@ class AdminController extends AdminSimpleController
         $data = Input::all();
 
         // add checkboxes data
-        $data['langChooser'] = Input::get('langChooser', 0);
-        $data['authPublic']  = Input::get('authPublic', 0);
-        $data['register']    = Input::get('register', 0);
+        $data['lang_chooser'] = Input::get('lang_chooser', 0);
+        $data['auth_public']  = Input::get('auth_public', 0);
+        $data['register']     = Input::get('register', 0);
         foreach (Config::get('translatable.locales') as $locale) {
             $data[$locale]['status'] = Input::get($locale.'.status', 0);
         }
