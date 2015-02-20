@@ -1,6 +1,6 @@
 <?php
 return array(
-    'name' => 'configuration',
+    'name' => 'Configuration',
     'settings' => 'configuration',
     'System info' => 'Informations système',
     'Backup DB' => 'Sauvegarder la base de données',
