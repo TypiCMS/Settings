@@ -12,10 +12,6 @@
         "heybigname/backup-manager": "~0.3"
     },
     "autoload": {
-        "classmap": [
-            "src/migrations",
-            "src/seeds"
-        ],
         "psr-4": {
             "TypiCMS\\Modules\\Settings\\": "src/"
         }
