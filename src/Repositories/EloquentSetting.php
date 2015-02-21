@@ -2,7 +2,9 @@
 namespace TypiCMS\Modules\Settings\Repositories;
 
 use DB;
+use Exception;
 use Illuminate\Database\Eloquent\Model;
+use Log;
 use stdClass;
 
 class EloquentSetting implements SettingInterface
@@ -75,14 +77,18 @@ class EloquentSetting implements SettingInterface
      */
     public function getAllToArray()
     {
-        $config = array();
-        foreach (DB::table('settings')->get() as $object) {
-            $key = $object->key_name;
-            if ($object->group_name != 'config') {
-                $config[$object->group_name][$key] = $object->value;
-            } else {
-                $config[$key] = $object->value;
+        $config = [];
+        try {
+            foreach (DB::table('settings')->get() as $object) {
+                $key = $object->key_name;
+                if ($object->group_name != 'config') {
+                    $config[$object->group_name][$key] = $object->value;
+                } else {
+                    $config[$key] = $object->value;
+                }
             }
+        } catch (Exception $e) {
+            Log::error($e->getMessage());
         }
 
         return $config;
