@@ -1,5 +1,7 @@
 @extends('core::admin.master')
 
+@section('title', ucfirst(trans('global.settings')))
+
 @section('main')
 
 <h1>{{ ucfirst(trans('global.settings')) }}</h1>
