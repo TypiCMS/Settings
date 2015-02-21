@@ -22,7 +22,6 @@ class AdminController extends AdminSimpleController
     public function __construct(SettingInterface $setting)
     {
         parent::__construct($setting);
-        $this->title['parent'] = ucfirst(trans('global.settings'));
     }
 
     /**
