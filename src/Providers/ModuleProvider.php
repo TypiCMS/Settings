@@ -27,9 +27,12 @@ class ModuleProvider extends ServiceProvider
         $config = $this->app['config']->get('typicms', []);
         $this->app['config']->set('typicms', array_merge($TypiCMSConfig, $config));
 
-        // Add dirs
-        View::addNamespace('settings', __DIR__ . '/../views/');
-        $this->loadTranslationsFrom(__DIR__ . '/../lang', 'settings');
+
+        $this->loadViewsFrom(__DIR__ . '/../resources/views/', 'settings');
+        $this->publishes([
+            __DIR__ . '/../views' => base_path('resources/views/vendor/settings'),
+        ], 'views');
+        $this->loadTranslationsFrom(__DIR__ . '/../resources/lang', 'settings');
         $this->publishes([
             __DIR__ . '/../migrations/' => base_path('/database/migrations'),
         ], 'migrations');
