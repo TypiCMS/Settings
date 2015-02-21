@@ -11,12 +11,12 @@ use Notification;
 use Redirect;
 use Response;
 use Symfony\Component\Process\Process;
-use TypiCMS\Http\Controllers\AdminSimpleController;
+use TypiCMS\Http\Controllers\BaseAdminController;
 use TypiCMS\Modules\Settings\Http\Requests\FormRequest;
 use TypiCMS\Modules\Settings\Repositories\SettingInterface;
 use View;
 
-class AdminController extends AdminSimpleController
+class AdminController extends BaseAdminController
 {
 
     public function __construct(SettingInterface $setting)
