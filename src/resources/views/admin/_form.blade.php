@@ -14,7 +14,7 @@
         <div class="col-sm-9 form-group">
             <div class="input-group">
                 <span class="input-group-addon">{{ strtoupper($lang) }}</span>
-                <input class="form-control" type="text" name="{{ $lang }}[website_title]" value="@if(isset($data->$lang)){{ $data->$lang->websiteTitle }}@endif">
+                <input class="form-control" type="text" name="{{ $lang }}[website_title]" value="@if(isset($data->$lang)){{ $data->$lang->website_title }}@endif">
             </div>
         </div>
         <div class="col-sm-3 checkbox">
