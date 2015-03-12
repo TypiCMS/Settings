@@ -20,7 +20,7 @@ class EloquentSetting implements SettingInterface
      *
      * @return stdClass
      */
-    public function getAll()
+    public function all()
     {
         $data = new stdClass;
         foreach ($this->model->get() as $model) {
@@ -75,7 +75,7 @@ class EloquentSetting implements SettingInterface
      *
      * @return array
      */
-    public function getAllToArray()
+    public function allToArray()
     {
         $config = [];
         try {

@@ -11,7 +11,7 @@ interface SettingInterface
      *
      * @return stdClass
      */
-    public function getAll();
+    public function all();
 
     /**
      * Update an existing item
@@ -26,5 +26,5 @@ interface SettingInterface
      *
      * @return array
      */
-    public function getAllToArray();
+    public function allToArray();
 }

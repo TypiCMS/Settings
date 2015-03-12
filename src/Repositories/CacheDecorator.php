@@ -18,7 +18,7 @@ class CacheDecorator implements SettingInterface
      *
      * @return stdClass
      */
-    public function getAll()
+    public function all()
     {
         $cacheKey = md5('Settings');
 
@@ -26,7 +26,7 @@ class CacheDecorator implements SettingInterface
             return $this->cache->get($cacheKey);
         }
 
-        $data = $this->repo->getAll($with);
+        $data = $this->repo->all($with);
 
         // Store in cache for next request
         $this->cache->put($cacheKey, $data);
@@ -51,7 +51,7 @@ class CacheDecorator implements SettingInterface
      *
      * @return array
      */
-    public function getAllToArray()
+    public function allToArray()
     {
         $cacheKey = md5('SettingsToArray');
 
@@ -59,7 +59,7 @@ class CacheDecorator implements SettingInterface
             return $this->cache->get($cacheKey);
         }
 
-        $data = $this->repo->getAllToArray();
+        $data = $this->repo->allToArray();
 
         // Store in cache for next request
         $this->cache->put($cacheKey, $data);

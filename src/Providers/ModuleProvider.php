@@ -21,7 +21,7 @@ class ModuleProvider extends ServiceProvider
          * Get configuration from DB and store it in the container
          */
         $TypiCMSConfig = $this->app->make('TypiCMS\Modules\Settings\Repositories\SettingInterface')
-            ->getAllToArray();
+            ->allToArray();
 
         // merge config
         $config = $this->app['config']->get('typicms', []);
