@@ -51,7 +51,7 @@ class ModuleProvider extends ServiceProvider
 
         $app->bind('TypiCMS\Modules\Settings\Repositories\SettingInterface', function (Application $app) {
             $repository = new EloquentSetting(new Setting);
-            if (! Config::get('app.cache')) {
+            if (! config('typicms.cache')) {
                 return $repository;
             }
             $laravelCache = new LaravelCache($app['cache'], 'settings', 10);
