@@ -26,7 +26,7 @@ class CacheDecorator implements SettingInterface
             return $this->cache->get($cacheKey);
         }
 
-        $data = $this->repo->all($with);
+        $data = $this->repo->all();
 
         // Store in cache for next request
         $this->cache->put($cacheKey, $data);
