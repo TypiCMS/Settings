@@ -47,6 +47,17 @@ class CacheDecorator implements SettingInterface
     }
 
     /**
+     * Delete image
+     *
+     * @return void
+     */
+    public function deleteImage()
+    {
+        $this->cache->flush();
+        return $this->repo->deleteImage();
+    }
+
+    /**
      * Build Settings Array
      *
      * @return array

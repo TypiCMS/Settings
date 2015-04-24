@@ -22,6 +22,13 @@ interface SettingInterface
     public function store(array $data);
 
     /**
+     * Delete image
+     *
+     * @return void
+     */
+    public function deleteImage();
+
+    /**
      * Build Settings Array
      *
      * @return array

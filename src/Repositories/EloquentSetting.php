@@ -1,9 +1,13 @@
 <?php
 namespace TypiCMS\Modules\Settings\Repositories;
 
+use Croppa;
 use DB;
 use Exception;
+use File;
+use FileUpload;
 use Illuminate\Database\Eloquent\Model;
+use Input;
 use Log;
 use stdClass;
 
@@ -51,6 +55,15 @@ class EloquentSetting implements SettingInterface
 
         $data = array_except($data, array('_method', '_token', 'exit'));
 
+        if ($data['image'] == 'delete') {
+            $data['image'] = null;
+        }
+
+        if (Input::hasFile('image')) {
+            $file = FileUpload::handle(Input::file('image'), 'uploads/settings');
+            $data['image'] = $file['filename'];
+        }
+
         foreach ($data as $group_name => $array) {
             if (! is_array($array)) {
                 $array = array($group_name => $array);
@@ -68,6 +81,26 @@ class EloquentSetting implements SettingInterface
 
         return true;
 
+    }
+
+    /**
+     * Delete image
+     *
+     * @return void
+     */
+    public function deleteImage()
+    {
+        $row = $this->model->where('key_name', 'image')->first();
+        $filedir = '/uploads/settings/';
+        $filename = $row->value;
+        $row->value = null;
+        $row->save();
+        try {
+            Croppa::delete($filedir . $filename);
+            File::delete(public_path() . $filedir . $filename);
+        } catch (Exception $e) {
+            Log::info($e->getMessage());
+        }
     }
 
     /**

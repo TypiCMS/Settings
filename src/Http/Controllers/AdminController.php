@@ -41,6 +41,16 @@ class AdminController extends BaseAdminController
     }
 
     /**
+     * Store a newly created resource in storage.
+     *
+     * @return Redirect
+     */
+    public function deleteImage()
+    {
+        $this->repository->deleteImage();
+    }
+
+    /**
      * Clear app cache
      *
      * @return Redirect

@@ -10,7 +10,7 @@
 
     <div class="col-sm-6">
 
-    {!! BootForm::open()->role('form') !!}
+    {!! BootForm::open()->multipart()->role('form') !!}
     {!! BootForm::bind($data) !!}
     {!! BootForm::token() !!}
 

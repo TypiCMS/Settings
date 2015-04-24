@@ -26,6 +26,19 @@
     </div>
 @endforeach
 
+<div class="fieldset-media fieldset-image">
+    {!! BootForm::hidden('image') !!}
+    @if(isset($data->image) and $data->image)
+    <div class="fieldset-preview">
+        <img class="img-responsive" src="/uploads/settings/{{ $data->image }}" alt="">
+        <small class="text-danger delete-attachment" data-table="settings" data-id="" data-field="image">Supprimer</small>
+    </div>
+    @endif
+    <div class="fieldset-field">
+        {!! BootForm::file(trans('validation.attributes.logo'), 'image') !!}
+    </div>
+</div>
+
 {!! BootForm::email(trans('validation.attributes.webmaster_email'), 'webmaster_email') !!}
 {!! BootForm::textarea(trans('validation.attributes.welcome_message'), 'welcome_message') !!}
 {!! BootForm::select(trans('validation.attributes.admin_locale'), 'admin_locale', array_combine($locales, $locales)) !!}
