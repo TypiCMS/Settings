@@ -22,9 +22,11 @@
 
     <div class="col-sm-6">
 
+        @if (config('typicms.cache'))
         <div>
             <a href="{{ route('cache.clear') }}" class="btn btn-default"><span class="fa fa-trash-o"></span> {{ trans('settings::global.Clear cache') }}</a>
         </div>
+        @endif
 
         <table class="table table-condensed">
             <thead>
@@ -45,11 +47,11 @@
                 </tr>
                 <tr>
                     <td>@lang('settings::global.Active locale')</td>
-                    <td><b>{{ Config::get('app.locale') }}</b></td>
+                    <td><b>{{ config('app.locale') }}</b></td>
                 </tr>
                 <tr>
                     <td>@lang('settings::global.Cache')</td>
-                    <td><b><?php echo Config::get('app.cache') ? trans('settings::global.Yes') : trans('settings::global.No') ; ?></b></td>
+                    <td><b><?php echo config('typicms.cache') ? trans('settings::global.Yes') : trans('settings::global.No') ; ?></b></td>
                 </tr>
             </tbody>
         </table>
