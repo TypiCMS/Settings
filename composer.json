@@ -8,7 +8,7 @@
         }
     ],
     "require": {
-        "typicms/core": "~2.0.0",
+        "typicms/core": "~2.1.0",
         "heybigname/backup-manager": "~0.3"
     },
     "autoload": {
