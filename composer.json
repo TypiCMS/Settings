@@ -8,8 +8,7 @@
         }
     ],
     "require": {
-        "typicms/core": "~2.1.0",
-        "heybigname/backup-manager": "~0.3"
+        "typicms/core": "~2.1.0"
     },
     "autoload": {
         "psr-4": {
