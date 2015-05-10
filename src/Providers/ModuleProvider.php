@@ -1,16 +1,13 @@
 <?php
 namespace TypiCMS\Modules\Settings\Providers;
 
-use Config;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\ServiceProvider;
-use Lang;
 use Settings;
 use TypiCMS\Modules\Settings\Models\Setting;
 use TypiCMS\Modules\Settings\Repositories\CacheDecorator;
 use TypiCMS\Modules\Settings\Repositories\EloquentSetting;
 use TypiCMS\Modules\Core\Services\Cache\LaravelCache;
-use View;
 
 class ModuleProvider extends ServiceProvider
 {
