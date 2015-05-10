@@ -9,7 +9,7 @@ use Settings;
 use TypiCMS\Modules\Settings\Models\Setting;
 use TypiCMS\Modules\Settings\Repositories\CacheDecorator;
 use TypiCMS\Modules\Settings\Repositories\EloquentSetting;
-use TypiCMS\Services\Cache\LaravelCache;
+use TypiCMS\Modules\Core\Services\Cache\LaravelCache;
 use View;
 
 class ModuleProvider extends ServiceProvider

@@ -6,7 +6,7 @@ use Input;
 use Log;
 use Notification;
 use Redirect;
-use TypiCMS\Http\Controllers\BaseAdminController;
+use TypiCMS\Modules\Core\Http\Controllers\BaseAdminController;
 use TypiCMS\Modules\Settings\Repositories\SettingInterface;
 
 class AdminController extends BaseAdminController
