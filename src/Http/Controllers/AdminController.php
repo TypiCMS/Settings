@@ -2,7 +2,7 @@
 namespace TypiCMS\Modules\Settings\Http\Controllers;
 
 use Cache;
-use Input;
+use Illuminate\Support\Facades\Input;
 use Log;
 use Notification;
 use Redirect;

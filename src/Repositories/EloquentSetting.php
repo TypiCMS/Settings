@@ -7,7 +7,7 @@ use Exception;
 use File;
 use FileUpload;
 use Illuminate\Database\Eloquent\Model;
-use Input;
+use Illuminate\Support\Facades\Input;
 use Log;
 use stdClass;
 
