@@ -7,12 +7,9 @@ class Setting extends Eloquent
 {
 
     protected $fillable = array(
-        'package',
         'group_name',
         'key_name',
         'value',
-        'type',
-        'environment',
     );
 
     /**

@@ -16,11 +16,9 @@ class CreateSettingsTable extends Migration
             $table->engine = 'InnoDB';
 
             $table->increments('id');
-            $table->string('package')->nullable();
             $table->string('group_name')->default('config');
             $table->string('key_name');
             $table->string('value')->nullable();
-            $table->string('environment')->nullable();
             $table->timestamps();
         });
     }
