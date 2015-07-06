@@ -12,7 +12,6 @@
 
     {!! BootForm::open()->multipart()->role('form') !!}
     {!! BootForm::bind($data) !!}
-    {!! BootForm::token() !!}
 
         @include('settings::admin._form')
 
