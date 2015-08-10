@@ -44,7 +44,6 @@
     {!! BootForm::textarea(trans('validation.attributes.welcome_message'), 'welcome_message') !!}
 @endif
 {!! BootForm::select(trans('validation.attributes.admin_locale'), 'admin_locale', array_combine($locales, $locales)) !!}
-{!! BootForm::text(trans('validation.attributes.typekit_code'), 'typekit_code') !!}
 {!! BootForm::text(trans('validation.attributes.google_analytics_code'), 'google_analytics_code') !!}
 <input type="hidden" name="lang_chooser" value="0">
 {!! BootForm::checkbox(trans('validation.attributes.lang_chooser'), 'lang_chooser') !!}
