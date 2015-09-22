@@ -7,6 +7,7 @@ use Exception;
 use File;
 use FileUpload;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Input;
 use Log;
 use stdClass;
@@ -78,6 +79,8 @@ class EloquentSetting implements SettingInterface
                 $model->save();
             }
         }
+
+        Artisan::call('config:cache');
 
         return true;
 
