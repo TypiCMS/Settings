@@ -10,7 +10,7 @@
 
     <div class="col-sm-6">
 
-    {!! BootForm::open()->multipart()->role('form') !!}
+    {!! BootForm::open()->multipart() !!}
     {!! BootForm::bind($data) !!}
 
         @include('settings::admin._form')
