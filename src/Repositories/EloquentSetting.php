@@ -80,8 +80,6 @@ class EloquentSetting implements SettingInterface
             }
         }
 
-        Artisan::call('config:cache');
-
         return true;
 
     }
