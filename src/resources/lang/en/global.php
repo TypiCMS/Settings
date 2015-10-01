@@ -3,7 +3,6 @@ return array(
     'name' => 'Settings',
     'settings' => 'settings',
     'System info' => 'System info',
-    'Backup DB' => 'Database backup',
     'Environment' => 'Environment',
     'System locales' => 'System locales',
     'Locales' => 'Locales',

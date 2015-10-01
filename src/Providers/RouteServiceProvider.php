@@ -41,7 +41,6 @@ class RouteServiceProvider extends ServiceProvider {
              */
             $router->resource('admin/settings', 'AdminController');
             $router->put('api/settings', 'AdminController@deleteImage');
-            $router->get('admin/backup', array('as' => 'backup', 'uses' => 'AdminController@backup'));
             $router->get('admin/cache/clear', array('as' => 'cache.clear', 'uses' => 'AdminController@clearCache'));
         });
     }
