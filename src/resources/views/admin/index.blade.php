@@ -1,10 +1,10 @@
 @extends('core::admin.master')
 
-@section('title', ucfirst(trans('global.settings')))
+@section('title', trans('global.Settings'))
 
 @section('main')
 
-<h1>{{ ucfirst(trans('global.settings')) }}</h1>
+<h1>@lang('global.Settings')</h1>
 
 <div class="row">
 
