@@ -33,7 +33,7 @@ class EloquentSetting implements SettingInterface
             $group_name = $model->group_name;
             $key_name = $model->key_name;
             if ($group_name != 'config') {
-                if (! isset($data->$group_name)) {
+                if (!isset($data->$group_name)) {
                     $data->$group_name = new stdClass;
                 }
                 $data->$group_name->$key_name = $value;
@@ -66,7 +66,7 @@ class EloquentSetting implements SettingInterface
         }
 
         foreach ($data as $group_name => $array) {
-            if (! is_array($array)) {
+            if (!is_array($array)) {
                 $array = array($group_name => $array);
                 $group_name = 'config';
             }
