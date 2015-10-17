@@ -1,35 +1,36 @@
 <?php
+
 namespace TypiCMS\Modules\Settings\Repositories;
 
 use stdClass;
 
 interface SettingInterface
 {
-
     /**
-     * Get all settings
+     * Get all settings.
      *
      * @return stdClass
      */
     public function all();
 
     /**
-     * Update an existing item
+     * Update an existing item.
      *
      * @param array  Data to update an item
-     * @return boolean
+     *
+     * @return bool
      */
     public function store(array $data);
 
     /**
-     * Delete image
+     * Delete image.
      *
      * @return void
      */
     public function deleteImage();
 
     /**
-     * Build Settings Array
+     * Build Settings Array.
      *
      * @return array
      */

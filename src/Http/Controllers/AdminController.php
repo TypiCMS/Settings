@@ -1,9 +1,9 @@
 <?php
+
 namespace TypiCMS\Modules\Settings\Http\Controllers;
 
 use Cache;
 use Illuminate\Support\Facades\Input;
-use Log;
 use Notification;
 use Redirect;
 use TypiCMS\Modules\Core\Http\Controllers\BaseAdminController;
@@ -11,7 +11,6 @@ use TypiCMS\Modules\Settings\Repositories\SettingInterface;
 
 class AdminController extends BaseAdminController
 {
-
     public function __construct(SettingInterface $setting)
     {
         parent::__construct($setting);
@@ -19,11 +18,12 @@ class AdminController extends BaseAdminController
 
     /**
      * List models
-     * GET /admin/model
+     * GET /admin/model.
      */
     public function index()
     {
         $data = $this->repository->all();
+
         return view('settings::admin.index')
             ->withData($data);
     }
@@ -37,6 +37,7 @@ class AdminController extends BaseAdminController
     {
         $data = Input::all();
         $this->repository->store($data);
+
         return Redirect::route('admin.settings.index');
     }
 
@@ -51,14 +52,15 @@ class AdminController extends BaseAdminController
     }
 
     /**
-     * Clear app cache
+     * Clear app cache.
      *
      * @return Redirect
      */
     public function clearCache()
     {
         Cache::flush();
-        Notification::success(trans('settings::global.Cache cleared') . '.');
+        Notification::success(trans('settings::global.Cache cleared').'.');
+
         return Redirect::route('admin.settings.index');
     }
 }

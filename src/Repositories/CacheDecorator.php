@@ -1,12 +1,11 @@
 <?php
+
 namespace TypiCMS\Modules\Settings\Repositories;
 
-use Illuminate\Database\Eloquent\Collection;
 use TypiCMS\Modules\Core\Services\Cache\CacheInterface;
 
 class CacheDecorator implements SettingInterface
 {
-
     public function __construct(SettingInterface $repo, CacheInterface $cache)
     {
         $this->repo = $repo;
@@ -14,7 +13,7 @@ class CacheDecorator implements SettingInterface
     }
 
     /**
-     * Get all settings
+     * Get all settings.
      *
      * @return stdClass
      */
@@ -35,30 +34,33 @@ class CacheDecorator implements SettingInterface
     }
 
     /**
-     * Update an existing model
+     * Update an existing model.
      *
      * @param array  Data to update a model
-     * @return boolean
+     *
+     * @return bool
      */
     public function store(array $data)
     {
         $this->cache->flush();
+
         return $this->repo->store($data);
     }
 
     /**
-     * Delete image
+     * Delete image.
      *
      * @return void
      */
     public function deleteImage()
     {
         $this->cache->flush();
+
         return $this->repo->deleteImage();
     }
 
     /**
-     * Build Settings Array
+     * Build Settings Array.
      *
      * @return array
      */
