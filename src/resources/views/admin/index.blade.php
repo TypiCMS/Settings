@@ -39,7 +39,7 @@
                 <tr>
                     <td>@lang('settings::global.System locales')</td>
                     <td>
-                        <div class="max-height">
+                        <div class="container-system-locales">
                             <b><?php try { system('locale -a'); } catch (Exception $e) { echo $e->getMessage(); } ?></b>
                         </div>
                     </td>
