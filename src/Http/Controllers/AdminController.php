@@ -3,7 +3,7 @@
 namespace TypiCMS\Modules\Settings\Http\Controllers;
 
 use Illuminate\Support\Facades\Cache;
-use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Request;
 use Krucas\Notification\Facades\Notification;
 use TypiCMS\Modules\Core\Http\Controllers\BaseAdminController;
 use TypiCMS\Modules\Settings\Repositories\SettingInterface;
@@ -34,7 +34,7 @@ class AdminController extends BaseAdminController
      */
     public function store()
     {
-        $data = Input::all();
+        $data = Request::all();
         $this->repository->store($data);
 
         return redirect()->route('admin.settings.index');
