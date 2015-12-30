@@ -17,20 +17,21 @@ class AdminController extends BaseAdminController
 
     /**
      * List models
-     * GET /admin/model.
+     *
+     * @return \Illuminate\View\View
      */
     public function index()
     {
         $data = $this->repository->all();
 
         return view('settings::admin.index')
-            ->withData($data);
+            ->with(compact('data'));
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @return \Illuminate\Support\Facades\Redirect
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function store()
     {
@@ -43,7 +44,7 @@ class AdminController extends BaseAdminController
     /**
      * Delete image.
      *
-     * @return void
+     * @return null
      */
     public function deleteImage()
     {
@@ -53,7 +54,7 @@ class AdminController extends BaseAdminController
     /**
      * Clear app cache.
      *
-     * @return \Illuminate\Support\Facades\Redirect
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function clearCache()
     {
