@@ -16,7 +16,7 @@ class AdminController extends BaseAdminController
     }
 
     /**
-     * List models
+     * List models.
      *
      * @return \Illuminate\View\View
      */
