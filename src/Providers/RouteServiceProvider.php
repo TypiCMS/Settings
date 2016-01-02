@@ -17,18 +17,6 @@ class RouteServiceProvider extends ServiceProvider
     protected $namespace = 'TypiCMS\Modules\Settings\Http\Controllers';
 
     /**
-     * Define your route model bindings, pattern filters, etc.
-     *
-     * @param \Illuminate\Routing\Router $router
-     *
-     * @return void
-     */
-    public function boot(Router $router)
-    {
-        parent::boot($router);
-    }
-
-    /**
      * Define the routes for the application.
      *
      * @param \Illuminate\Routing\Router $router
@@ -41,9 +29,14 @@ class RouteServiceProvider extends ServiceProvider
             /*
              * Admin routes
              */
-            $router->resource('admin/settings', 'AdminController', ['only' => ['index', 'store']]);
-            $router->put('api/settings', 'AdminController@deleteImage');
+            $router->get('admin/settings', ['as' => 'admin.settings.index', 'uses' => 'AdminController@index']);
+            $router->post('admin/settings', ['as' => 'admin.settings.store', 'uses' => 'AdminController@store']);
             $router->get('admin/cache/clear', ['as' => 'cache.clear', 'uses' => 'AdminController@clearCache']);
+
+            /*
+             * API routes
+             */
+            $router->put('api/settings', 'AdminController@deleteImage');
         });
     }
 }
