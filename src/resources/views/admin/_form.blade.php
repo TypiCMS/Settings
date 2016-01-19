@@ -1,6 +1,6 @@
 @section('js')
     <script src="{{ asset('js/admin/form.js') }}"></script>
-@stop
+@endsection
 
 <div class="row">
     <div class="form-group col-sm-12">
