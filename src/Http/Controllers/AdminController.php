@@ -38,7 +38,7 @@ class AdminController extends BaseAdminController
         $data = Request::all();
         $this->repository->store($data);
 
-        return redirect()->route('admin.settings.index');
+        return redirect()->route('admin::index-settings');
     }
 
     /**
@@ -61,6 +61,6 @@ class AdminController extends BaseAdminController
         Cache::flush();
         Notification::success(trans('settings::global.Cache cleared').'.');
 
-        return redirect()->route('admin.settings.index');
+        return redirect()->route('admin::index-settings');
     }
 }

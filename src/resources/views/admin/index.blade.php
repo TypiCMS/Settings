@@ -23,7 +23,7 @@
 
         @if (config('typicms.cache'))
         <div>
-            <a href="{{ route('cache.clear') }}" class="btn btn-default"><span class="fa fa-trash-o"></span> {{ trans('settings::global.Clear cache') }}</a>
+            <a href="{{ route('admin::clear-cache') }}" class="btn btn-default"><span class="fa fa-trash-o"></span> {{ trans('settings::global.Clear cache') }}</a>
         </div>
         @endif
 
