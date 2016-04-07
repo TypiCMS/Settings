@@ -30,7 +30,7 @@ class RouteServiceProvider extends ServiceProvider
              * Admin routes
              */
             $router->get('admin/settings', 'AdminController@index')->name('admin::index-settings');
-            $router->post('admin/settings', 'AdminController@store')->name('admin::store-settings');
+            $router->post('admin/settings', 'AdminController@store')->name('admin::store-setting');
             $router->get('admin/cache/clear', 'AdminController@clearCache')->name('admin::clear-cache');
 
             /*

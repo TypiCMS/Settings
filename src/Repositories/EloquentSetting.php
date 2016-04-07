@@ -53,8 +53,6 @@ class EloquentSetting implements SettingInterface
      */
     public function store(array $data)
     {
-        $data = array_except($data, ['_method', '_token', 'exit']);
-
         if ($data['image'] == 'delete') {
             $data['image'] = null;
         }
