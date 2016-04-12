@@ -1,7 +1,3 @@
-@section('js')
-    <script src="{{ asset('js/admin/form.js') }}"></script>
-@endsection
-
 <div class="row">
     <div class="form-group col-sm-12">
         <button class="btn-primary btn" type="submit">@lang('validation.attributes.save')</button>
