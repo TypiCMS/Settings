@@ -83,7 +83,7 @@ class EloquentSetting implements SettingInterface
     /**
      * Delete image.
      *
-     * @return void
+     * @return null
      */
     public function deleteImage()
     {
