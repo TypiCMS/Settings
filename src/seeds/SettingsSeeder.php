@@ -22,7 +22,7 @@ class SettingsSeeder extends Seeder
             ['id' => '11', 'group_name' => 'config', 'key_name' => 'auth_public', 'value' => 0, 'created_at' => '2014-03-18 12:48:01', 'updated_at' => '2014-03-18 12:48:01'],
             ['id' => '12', 'group_name' => 'config', 'key_name' => 'register', 'value' => 0, 'created_at' => '2014-03-18 12:48:01', 'updated_at' => '2014-03-18 12:48:01'],
             ['id' => '13', 'group_name' => 'config', 'key_name' => 'admin_locale', 'value' => 'en', 'created_at' => '2014-03-22 12:48:01', 'updated_at' => '2014-03-22 12:48:01'],
-            ['id' => '2', 'group_name' => 'config', 'key_name' => 'google_analytics_id', 'value' => null, 'created_at' => '2016-09-02 13:54:00', 'updated_at' => '2016-09-02 13:54:00'],
+            ['id' => '2', 'group_name' => 'config', 'key_name' => 'google_tag_manager_id', 'value' => null, 'created_at' => '2016-09-02 13:54:00', 'updated_at' => '2016-09-02 13:54:00'],
         ];
 
         DB::table('settings')->insert($typi_settings);
