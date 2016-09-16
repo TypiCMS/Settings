@@ -6,11 +6,11 @@ use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Request;
 use Krucas\Notification\Facades\Notification;
 use TypiCMS\Modules\Core\Http\Controllers\BaseAdminController;
-use TypiCMS\Modules\Settings\Repositories\SettingInterface;
+use TypiCMS\Modules\Settings\Repositories\EloquentSetting;
 
 class AdminController extends BaseAdminController
 {
-    public function __construct(SettingInterface $setting)
+    public function __construct(EloquentSetting $setting)
     {
         parent::__construct($setting);
     }
