@@ -2,10 +2,8 @@
 
 namespace TypiCMS\Modules\Settings\Providers;
 
-use Illuminate\Foundation\Application;
 use Illuminate\Support\ServiceProvider;
 use Settings;
-use TypiCMS\Modules\Settings\Models\Setting;
 use TypiCMS\Modules\Settings\Repositories\EloquentSetting;
 
 class ModuleProvider extends ServiceProvider
