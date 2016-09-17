@@ -8,11 +8,12 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Request;
+use TypiCMS\Modules\Core\EloquentRepository;
 use TypiCMS\Modules\Core\Facades\FileUpload;
 use TypiCMS\Modules\Settings\Models\Setting;
 use stdClass;
 
-class EloquentSetting
+class EloquentSetting extends EloquentRepository
 {
     protected $repositoryId = 'settings';
 
@@ -26,7 +27,7 @@ class EloquentSetting
     public function all()
     {
         $data = new stdClass();
-        foreach ($this->model->get() as $model) {
+        foreach ($this->findAll() as $model) {
             $value = is_numeric($model->value) ? (int) $model->value : $model->value;
             $group_name = $model->group_name;
             $key_name = $model->key_name;
@@ -108,7 +109,7 @@ class EloquentSetting
     {
         $config = [];
         try {
-            foreach (DB::table('settings')->get() as $object) {
+            foreach ($this->findAll() as $object) {
                 $key = $object->key_name;
                 if ($object->group_name != 'config') {
                     $config[$object->group_name][$key] = $object->value;
