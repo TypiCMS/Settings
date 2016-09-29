@@ -4,14 +4,13 @@ namespace TypiCMS\Modules\Settings\Repositories;
 
 use Croppa;
 use Exception;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Request;
-use TypiCMS\Modules\Core\Repositories\EloquentRepository;
-use TypiCMS\Modules\Core\Facades\FileUpload;
-use TypiCMS\Modules\Settings\Models\Setting;
 use stdClass;
+use TypiCMS\Modules\Core\Facades\FileUpload;
+use TypiCMS\Modules\Core\Repositories\EloquentRepository;
+use TypiCMS\Modules\Settings\Models\Setting;
 
 class EloquentSetting extends EloquentRepository
 {
