@@ -67,7 +67,7 @@ class EloquentSetting extends EloquentRepository
                 $group_name = 'config';
             }
             foreach ($array as $key_name => $value) {
-                $model = $this->model->where('key_name', $key_name)->where('group_name', $group_name)->first();
+                $model = $this->where('key_name', $key_name)->where('group_name', $group_name)->first();
                 $model = $model ? $model : new $this->model();
                 $model->group_name = $group_name;
                 $model->key_name = $key_name;
@@ -86,7 +86,7 @@ class EloquentSetting extends EloquentRepository
      */
     public function deleteImage()
     {
-        $row = $this->model->where('key_name', 'image')->first();
+        $row = $this->where('key_name', 'image')->first();
         $filedir = '/uploads/settings/';
         $filename = $row->value;
         $row->value = null;
