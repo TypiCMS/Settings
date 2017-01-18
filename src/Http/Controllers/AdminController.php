@@ -8,9 +8,9 @@ use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Request;
-use Krucas\Notification\Facades\Notification;
 use TypiCMS\Modules\Core\Facades\FileUpload;
 use TypiCMS\Modules\Core\Http\Controllers\BaseAdminController;
+use TypiCMS\Modules\Settings\Models\Setting;
 use TypiCMS\Modules\Settings\Repositories\EloquentSetting;
 
 class AdminController extends BaseAdminController
@@ -57,8 +57,8 @@ class AdminController extends BaseAdminController
                 $group_name = 'config';
             }
             foreach ($array as $key_name => $value) {
-                $model = $this->where('key_name', $key_name)->where('group_name', $group_name)->first();
-                $model = $model ? $model : new $this->model();
+                $model = Setting::where('key_name', $key_name)->where('group_name', $group_name)->first();
+                $model = $model ?: new Setting;
                 $model->group_name = $group_name;
                 $model->key_name = $key_name;
                 $model->value = $value;
@@ -97,7 +97,6 @@ class AdminController extends BaseAdminController
     public function clearCache()
     {
         Cache::flush();
-        Notification::success(trans('settings::global.Cache cleared').'.');
 
         return redirect()->route('admin::index-settings');
     }
