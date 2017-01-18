@@ -10,7 +10,7 @@
         <div class="col-sm-9 form-group">
             <div class="input-group">
                 <span class="input-group-addon">{{ strtoupper($lang) }}</span>
-                <input class="form-control" type="text" name="{{ $lang }}[website_title]" value="@if(isset($data->$lang)){{ $data->$lang->website_title }}@endif">
+                <input class="form-control" type="text" name="{{ $lang }}[website_title]" value="{{ $data->$lang->website_title ?? '' }}">
             </div>
         </div>
         <div class="col-sm-3 checkbox">
@@ -18,6 +18,16 @@
                 <input type="hidden" name="{{ $lang }}[status]" value="0">
                 <input type="checkbox" name="{{ $lang }}[status]" value="1" @if(isset($data->$lang) and $data->$lang->status)checked @endif> @lang('validation.attributes.online')
             </label>
+        </div>
+    </div>
+@endforeach
+
+<label>@lang('validation.attributes.website_baseline')</label>
+@foreach ($locales as $lang)
+    <div class="form-group">
+        <div class="input-group">
+            <span class="input-group-addon">{{ strtoupper($lang) }}</span>
+            <input class="form-control" type="text" name="{{ $lang }}[website_baseline]" value="{{ $data->$lang->website_baseline ?? '' }}">
         </div>
     </div>
 @endforeach
@@ -36,7 +46,7 @@
 </div>
 
 {!! BootForm::email(trans('validation.attributes.webmaster_email'), 'webmaster_email') !!}
-@if (! config('typicms.welcome_message_url'))
+@if (!config('typicms.welcome_message_url'))
     {!! BootForm::textarea(trans('validation.attributes.welcome_message'), 'welcome_message') !!}
 @endif
 {!! BootForm::select(trans('validation.attributes.admin_locale'), 'admin_locale', array_combine($locales, $locales)) !!}
