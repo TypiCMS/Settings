@@ -41,21 +41,21 @@
     </div>
     @endif
     <div class="fieldset-field">
-        {!! BootForm::file(trans('validation.attributes.logo'), 'image') !!}
+        {!! BootForm::file(__('validation.attributes.logo'), 'image') !!}
     </div>
 </div>
 
-{!! BootForm::email(trans('validation.attributes.webmaster_email'), 'webmaster_email') !!}
+{!! BootForm::email(__('validation.attributes.webmaster_email'), 'webmaster_email') !!}
 @if (!config('typicms.welcome_message_url'))
-    {!! BootForm::textarea(trans('validation.attributes.welcome_message'), 'welcome_message') !!}
+    {!! BootForm::textarea(__('validation.attributes.welcome_message'), 'welcome_message') !!}
 @endif
-{!! BootForm::select(trans('validation.attributes.admin_locale'), 'admin_locale', array_combine($locales, $locales)) !!}
-{!! BootForm::text(trans('validation.attributes.google_analytics_code'), 'google_analytics_code') !!}
+{!! BootForm::select(__('validation.attributes.admin_locale'), 'admin_locale', array_combine($locales, $locales)) !!}
+{!! BootForm::text(__('validation.attributes.google_analytics_code'), 'google_analytics_code') !!}
 {!! BootForm::hidden('lang_chooser')->value(0) !!}
 @if (config('typicms.main_locale_in_url'))
-    {!! BootForm::checkbox(trans('validation.attributes.lang_chooser'), 'lang_chooser') !!}
+    {!! BootForm::checkbox(__('validation.attributes.lang_chooser'), 'lang_chooser') !!}
 @endif
 {!! BootForm::hidden('auth_public')->value(0) !!}
-{!! BootForm::checkbox(trans('validation.attributes.auth_public'), 'auth_public') !!}
+{!! BootForm::checkbox(__('validation.attributes.auth_public'), 'auth_public') !!}
 {!! BootForm::hidden('register')->value(0) !!}
-{!! BootForm::checkbox(trans('validation.attributes.registration allowed'), 'register') !!}
+{!! BootForm::checkbox(__('validation.attributes.registration allowed'), 'register') !!}

@@ -1,6 +1,6 @@
 @extends('core::admin.master')
 
-@section('title', trans('global.Settings'))
+@section('title', __('global.Settings'))
 
 @section('main')
 
@@ -23,7 +23,7 @@
 
         @if (config('typicms.cache'))
         <div>
-            <a href="{{ route('admin::clear-cache') }}" class="btn btn-default"><span class="fa fa-trash-o"></span> {{ trans('settings::global.Clear cache') }}</a>
+            <a href="{{ route('admin::clear-cache') }}" class="btn btn-default"><span class="fa fa-trash-o"></span> {{ __('settings::global.Clear cache') }}</a>
         </div>
         @endif
 
@@ -50,7 +50,7 @@
                 </tr>
                 <tr>
                     <td>@lang('settings::global.Cache')</td>
-                    <td><b><?php echo config('typicms.cache') ? trans('settings::global.Yes') : trans('settings::global.No') ; ?></b></td>
+                    <td><b><?php echo config('typicms.cache') ? __('settings::global.Yes') : __('settings::global.No') ; ?></b></td>
                 </tr>
             </tbody>
         </table>
