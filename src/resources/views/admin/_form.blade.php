@@ -1,10 +1,10 @@
 <div class="row">
     <div class="form-group col-sm-12">
-        <button class="btn-primary btn" type="submit">@lang('validation.attributes.save')</button>
+        <button class="btn-primary btn" type="submit">{{ __('Save') }}</button>
     </div>
 </div>
 
-<label>@lang('validation.attributes.website_title')</label>
+<label>{{ __('Website title') }}</label>
 @foreach ($locales as $lang)
     <div class="row">
         <div class="col-sm-9 form-group">
@@ -16,13 +16,13 @@
         <div class="col-sm-3 checkbox">
             <label>
                 <input type="hidden" name="{{ $lang }}[status]" value="0">
-                <input type="checkbox" name="{{ $lang }}[status]" value="1" @if(isset($data->$lang) and $data->$lang->status)checked @endif> @lang('validation.attributes.online')
+                <input type="checkbox" name="{{ $lang }}[status]" value="1" @if(isset($data->$lang) and $data->$lang->status)checked @endif> {{ __('Online') }}
             </label>
         </div>
     </div>
 @endforeach
 
-<label>@lang('validation.attributes.website_baseline')</label>
+<label>{{ __('Website baseline') }}</label>
 @foreach ($locales as $lang)
     <div class="form-group">
         <div class="input-group">
@@ -41,21 +41,21 @@
     </div>
     @endif
     <div class="fieldset-field">
-        {!! BootForm::file(__('validation.attributes.logo'), 'image') !!}
+        {!! BootForm::file(__('Logo'), 'image') !!}
     </div>
 </div>
 
-{!! BootForm::email(__('validation.attributes.webmaster_email'), 'webmaster_email') !!}
+{!! BootForm::email(__('Webmaster Email'), 'webmaster_email') !!}
 @if (!config('typicms.welcome_message_url'))
-    {!! BootForm::textarea(__('validation.attributes.welcome_message'), 'welcome_message') !!}
+    {!! BootForm::textarea(__('Administration Welcome Message'), 'welcome_message') !!}
 @endif
-{!! BootForm::select(__('validation.attributes.admin_locale'), 'admin_locale', array_combine($locales, $locales)) !!}
-{!! BootForm::text(__('validation.attributes.google_analytics_code'), 'google_analytics_code') !!}
+{!! BootForm::select(__('Administration Language'), 'admin_locale', array_combine($locales, $locales)) !!}
+{!! BootForm::text(__('Google Analytics Tracking Id'), 'google_analytics_code') !!}
 {!! BootForm::hidden('lang_chooser')->value(0) !!}
 @if (config('typicms.main_locale_in_url'))
-    {!! BootForm::checkbox(__('validation.attributes.lang_chooser'), 'lang_chooser') !!}
+    {!! BootForm::checkbox(__('Lang Chooser'), 'lang_chooser') !!}
 @endif
 {!! BootForm::hidden('auth_public')->value(0) !!}
-{!! BootForm::checkbox(__('validation.attributes.auth_public'), 'auth_public') !!}
+{!! BootForm::checkbox(__('Authenticate to view website'), 'auth_public') !!}
 {!! BootForm::hidden('register')->value(0) !!}
-{!! BootForm::checkbox(__('validation.attributes.registration allowed'), 'register') !!}
+{!! BootForm::checkbox(__('Registration allowed'), 'register') !!}
