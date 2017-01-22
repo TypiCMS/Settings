@@ -2,7 +2,7 @@
 
 @section('title', __('global.Settings'))
 
-@section('main')
+@section('content')
 
 <h1>@lang('global.Settings')</h1>
 
