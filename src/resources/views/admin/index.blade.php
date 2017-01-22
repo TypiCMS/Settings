@@ -1,10 +1,10 @@
 @extends('core::admin.master')
 
-@section('title', __('global.Settings'))
+@section('title', __('Settings'))
 
 @section('content')
 
-<h1>@lang('global.Settings')</h1>
+<h1>@lang('Settings')</h1>
 
 <div class="row">
 

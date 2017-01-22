@@ -16,7 +16,7 @@
         <div class="col-sm-3 checkbox">
             <label>
                 <input type="hidden" name="{{ $lang }}[status]" value="0">
-                <input type="checkbox" name="{{ $lang }}[status]" value="1" @if(isset($data->$lang) and $data->$lang->status)checked @endif> {{ __('Online') }}
+                <input type="checkbox" name="{{ $lang }}[status]" value="1" @if(isset($data->$lang) and $data->$lang->status)checked @endif> {{ __('Enabled') }}
             </label>
         </div>
     </div>
