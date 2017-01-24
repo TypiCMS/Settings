@@ -1,10 +1,10 @@
 <div class="row">
     <div class="form-group col-sm-12">
-        <button class="btn-primary btn" type="submit">{{ __('Save') }}</button>
+        <button class="btn-primary btn" type="submit">@lang('Save')</button>
     </div>
 </div>
 
-<label>{{ __('Website title') }}</label>
+<label>@lang('Website title')</label>
 @foreach ($locales as $lang)
     <div class="row">
         <div class="col-sm-9 form-group">
@@ -16,13 +16,13 @@
         <div class="col-sm-3 checkbox">
             <label>
                 <input type="hidden" name="{{ $lang }}[status]" value="0">
-                <input type="checkbox" name="{{ $lang }}[status]" value="1" @if(isset($data->$lang) and $data->$lang->status)checked @endif> {{ __('Enabled') }}
+                <input type="checkbox" name="{{ $lang }}[status]" value="1" @if(isset($data->$lang) and $data->$lang->status)checked @endif> @lang('Enabled')
             </label>
         </div>
     </div>
 @endforeach
 
-<label>{{ __('Website baseline') }}</label>
+<label>@lang('Website baseline')</label>
 @foreach ($locales as $lang)
     <div class="form-group">
         <div class="input-group">
