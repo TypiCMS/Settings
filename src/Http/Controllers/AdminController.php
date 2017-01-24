@@ -62,7 +62,7 @@ class AdminController extends BaseAdminController
                 $model->group_name = $group_name;
                 $model->key_name = $key_name;
                 $model->value = $value;
-                $model->save();
+                $this->repository->update($model->id, $model->toArray());
             }
         }
 
