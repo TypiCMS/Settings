@@ -29,7 +29,7 @@
 
         <table class="table table-condensed">
             <thead>
-                <tr><th colspan="2">@lang('settings::global.System info')</th></tr>
+                <tr><th colspan="2">{{ __('settings::global.System info') }}</th></tr>
             </thead>
             <tbody>
                 <tr>
