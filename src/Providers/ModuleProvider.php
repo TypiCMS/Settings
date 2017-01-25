@@ -38,7 +38,7 @@ class ModuleProvider extends ServiceProvider
         /*
          * Register route service provider
          */
-        $app->register('TypiCMS\Modules\Settings\Providers\RouteServiceProvider');
+        $app->register(RouteServiceProvider::class);
 
         $app->bind('Settings', EloquentSetting::class);
     }
