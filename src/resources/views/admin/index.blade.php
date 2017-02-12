@@ -20,8 +20,7 @@
     </div>
 
     <div class="col-sm-6">
-
-        @if (config('typicms.cache'))
+        @if (config('rinvex.repository.cache.lifetime') !== 0)
         <div>
             <a href="{{ route('admin::clear-cache') }}" class="btn btn-default"><span class="fa fa-trash-o"></span> {{ __('settings::global.Clear cache') }}</a>
         </div>
