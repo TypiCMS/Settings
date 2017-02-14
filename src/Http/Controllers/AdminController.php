@@ -76,11 +76,12 @@ class AdminController extends BaseAdminController
      */
     public function deleteImage()
     {
-        $row = $this->where('key_name', 'image')->first();
+        $row = Setting::where('key_name', 'image')->first();
         $filedir = '/uploads/settings/';
         $filename = $row->value;
         $row->value = null;
         $row->save();
+        $this->repository->forgetCache();
         try {
             Croppa::delete($filedir.$filename);
             File::delete(public_path().$filedir.$filename);
