@@ -4,7 +4,6 @@ namespace TypiCMS\Modules\Settings\Repositories;
 
 use Exception;
 use Illuminate\Support\Facades\Log;
-use Illuminate\Support\Facades\Request;
 use stdClass;
 use TypiCMS\Modules\Core\Repositories\EloquentRepository;
 use TypiCMS\Modules\Settings\Models\Setting;
