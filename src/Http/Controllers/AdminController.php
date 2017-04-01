@@ -47,7 +47,7 @@ class AdminController extends BaseAdminController
         }
 
         if (Request::hasFile('image')) {
-            $file = FileUpload::handle(Request::file('image'), 'uploads/settings');
+            $file = FileUpload::handle(Request::file('image'), 'public/settings');
             $data['image'] = $file['filename'];
         }
 
