@@ -34,11 +34,11 @@ class AdminController extends BaseAdminController
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Save settings.
      *
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function store()
+    public function save()
     {
         $data = Request::all();
 
