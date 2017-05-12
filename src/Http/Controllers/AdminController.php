@@ -40,7 +40,7 @@ class AdminController extends BaseAdminController
      */
     public function save()
     {
-        $data = Request::all();
+        $data = Request::except('_token');
 
         if ($data['image'] == 'delete') {
             $data['image'] = null;
@@ -62,7 +62,8 @@ class AdminController extends BaseAdminController
                 $model->group_name = $group_name;
                 $model->key_name = $key_name;
                 $model->value = $value;
-                $this->repository->update($model->id, $model->toArray());
+                $model->save();
+                $this->repository->forgetCache();
             }
         }
 
