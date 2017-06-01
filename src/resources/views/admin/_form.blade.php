@@ -16,7 +16,7 @@
         <div class="col-sm-3 checkbox">
             <label>
                 <input type="hidden" name="{{ $lang }}[status]" value="0">
-                <input type="checkbox" name="{{ $lang }}[status]" value="1" @if(isset($data->$lang) and $data->$lang->status)checked @endif> {{ __('Enabled') }}
+                <input type="checkbox" name="{{ $lang }}[status]" value="1" @if (isset($data->$lang) and $data->$lang->status)checked @endif> {{ __('Enabled') }}
             </label>
         </div>
     </div>
@@ -34,7 +34,7 @@
 
 <div class="fieldset-media fieldset-image">
     {!! BootForm::hidden('image') !!}
-    @if(isset($data->image) and $data->image)
+    @if (isset($data->image) and $data->image)
     <div class="fieldset-preview">
         <img class="img-responsive" src="/storage/settings/{{ $data->image }}" alt="">
         <small class="text-danger delete-attachment" data-table="settings" data-id="" data-field="image">Supprimer</small>

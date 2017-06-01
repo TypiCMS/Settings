@@ -99,7 +99,7 @@ class AdminController extends BaseAdminController
     public function clearCache()
     {
         Cache::flush();
-        $message = trans('settings::global.Cache cleared').'.';
+        $message = __('Cache cleared.');
 
         return redirect()->route('admin::index-settings')
             ->with(compact('message'));
