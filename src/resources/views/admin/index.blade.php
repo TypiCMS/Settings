@@ -49,7 +49,7 @@
                 </tr>
                 <tr>
                     <td>@lang('Cache')</td>
-                    <td><b><?php echo config('typicms.cache') ? __('No') ; ?></b></td>
+                    <td><b>{{ config('rinvex.repository.cache.lifetime') !== 0 ? __('Yes') : __('No') }}</b></td>
                 </tr>
             </tbody>
         </table>
