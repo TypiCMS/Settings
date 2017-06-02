@@ -16,14 +16,6 @@
             "TypiCMS\\Modules\\Settings\\": "src/"
         }
     },
-    "scripts": {
-        "post-install-cmd": [
-            "php artisan translations:add /vendor/typicms/Settings/src/resources/lang"
-        ],
-        "post-update-cmd": [
-            "php artisan translations:add /vendor/typicms/Settings/src/resources/lang"
-        ]
-    },
     "minimum-stability": "dev",
     "prefer-stable": true
 }
