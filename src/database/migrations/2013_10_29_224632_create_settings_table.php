@@ -8,13 +8,12 @@ class CreateSettingsTable extends Migration
     /**
      * Run the migrations.
      *
-     * @return void
+     * @return null
      */
     public function up()
     {
         Schema::create('settings', function (Blueprint $table) {
             $table->engine = 'InnoDB';
-
             $table->increments('id');
             $table->string('group_name')->default('config');
             $table->string('key_name');
@@ -26,7 +25,7 @@ class CreateSettingsTable extends Migration
     /**
      * Reverse the migrations.
      *
-     * @return void
+     * @return null
      */
     public function down()
     {
