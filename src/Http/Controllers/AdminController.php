@@ -5,7 +5,6 @@ namespace TypiCMS\Modules\Settings\Http\Controllers;
 use Croppa;
 use Exception;
 use Illuminate\Support\Facades\Cache;
-use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Request;
 use TypiCMS\Modules\Core\Facades\FileUpload;
@@ -42,12 +41,9 @@ class AdminController extends BaseAdminController
     {
         $data = Request::except('_token');
 
-        if ($data['image'] == 'delete') {
-            $data['image'] = null;
-        }
-
         if (Request::hasFile('image')) {
-            $file = FileUpload::handle(Request::file('image'), 'public/settings');
+            $file = FileUpload::handle(Request::file('image'), 'settings');
+            $this->deleteImage();
             $data['image'] = $file['filename'];
         }
 
@@ -78,14 +74,12 @@ class AdminController extends BaseAdminController
     public function deleteImage()
     {
         $row = Setting::where('key_name', 'image')->first();
-        $filedir = '/uploads/settings/';
         $filename = $row->value;
         $row->value = null;
         $row->save();
         $this->repository->forgetCache();
         try {
-            Croppa::delete($filedir.$filename);
-            File::delete(public_path().$filedir.$filename);
+            Croppa::delete('uploads/settings/'.$filename);
         } catch (Exception $e) {
             Log::info($e->getMessage());
         }
