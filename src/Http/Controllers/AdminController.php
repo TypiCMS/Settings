@@ -4,9 +4,9 @@ namespace TypiCMS\Modules\Settings\Http\Controllers;
 
 use Croppa;
 use Exception;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Log;
-use Illuminate\Support\Facades\Request;
 use TypiCMS\Modules\Core\Facades\FileUpload;
 use TypiCMS\Modules\Core\Http\Controllers\BaseAdminController;
 use TypiCMS\Modules\Settings\Models\Setting;
@@ -37,12 +37,12 @@ class AdminController extends BaseAdminController
      *
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function save()
+    public function save(Request $request)
     {
-        $data = Request::except('_token');
+        $data = $request->except('_token');
 
-        if (Request::hasFile('image')) {
-            $file = FileUpload::handle(Request::file('image'), 'settings');
+        if ($request->hasFile('image')) {
+            $file = FileUpload::handle($request->file('image'), 'settings');
             $this->deleteImage();
             $data['image'] = $file['filename'];
         }
