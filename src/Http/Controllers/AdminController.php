@@ -7,8 +7,8 @@ use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Log;
-use TypiCMS\Modules\Core\Facades\FileUpload;
 use TypiCMS\Modules\Core\Http\Controllers\BaseAdminController;
+use TypiCMS\Modules\Core\Services\FileUploader;
 use TypiCMS\Modules\Settings\Models\Setting;
 use TypiCMS\Modules\Settings\Repositories\EloquentSetting;
 
@@ -37,12 +37,12 @@ class AdminController extends BaseAdminController
      *
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function save(Request $request)
+    public function save(Request $request, FileUploader $fileUploader)
     {
         $data = $request->except('_token');
 
         if ($request->hasFile('image')) {
-            $file = FileUpload::handle($request->file('image'), 'settings');
+            $file = $fileUploader->handle($request->file('image'), 'settings');
             $this->deleteImage();
             $data['image'] = $file['filename'];
         }
