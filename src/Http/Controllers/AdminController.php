@@ -53,10 +53,7 @@ class AdminController extends BaseAdminController
                 $group_name = 'config';
             }
             foreach ($array as $key_name => $value) {
-                $model = Setting::where('key_name', $key_name)->where('group_name', $group_name)->first();
-                $model = $model ?: new Setting;
-                $model->group_name = $group_name;
-                $model->key_name = $key_name;
+                $model = Setting::firstOrCreate(['key_name' => $key_name, 'group_name' => $group_name]);
                 $model->value = $value;
                 $model->save();
                 $this->repository->forgetCache();
