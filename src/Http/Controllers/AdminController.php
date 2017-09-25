@@ -70,16 +70,15 @@ class AdminController extends BaseAdminController
      */
     public function deleteImage()
     {
-        $row = Setting::where('key_name', 'image')->first();
-        $filename = $row->value;
-        $row->value = null;
-        $row->save();
-        $this->repository->forgetCache();
-        try {
-            Croppa::delete('uploads/settings/'.$filename);
-        } catch (Exception $e) {
-            Log::info($e->getMessage());
+        if ($filename = Setting::where('key_name', 'image')->value('value')) {
+            try {
+                Croppa::delete('storage/settings/'.$filename);
+            } catch (Exception $e) {
+                Log::info($e->getMessage());
+            }
         }
+        Setting::where('key_name', 'image')->delete();
+        $this->repository->forgetCache();
     }
 
     /**
