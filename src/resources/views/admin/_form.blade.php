@@ -37,7 +37,7 @@
     @if (isset($data->image) and $data->image)
     <div class="fieldset-preview">
         <img class="img-responsive" src="{{ Storage::url('settings/'.$data->image) }}" alt="">
-        <small class="text-danger delete-attachment" data-table="settings" data-id="" data-field="image">Supprimer</small>
+        <small class="text-danger delete-attachment" data-table="settings" data-id="" data-field="image">@lang('Delete')</small>
     </div>
     @endif
     <div class="fieldset-field">
