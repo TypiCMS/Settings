@@ -22,7 +22,7 @@
     <div class="col-sm-6">
         @if (config('rinvex.repository.cache.lifetime') !== 0)
         <div>
-            <a href="{{ route('admin::clear-cache') }}" class="btn btn-default"><span class="fa fa-trash-o"></span> {{ __('Clear cache') }}</a>
+            <a href="{{ route('admin::clear-cache') }}" class="btn btn-light"><span class="fa fa-trash-o"></span> {{ __('Clear cache') }}</a>
         </div>
         @endif
 
@@ -32,8 +32,8 @@
             </thead>
             <tbody>
                 <tr>
-                    <td class="col-sm-6">@lang('Environment')</td>
-                    <td class="col-sm-6"><b>{{ App::environment() }}</b></td>
+                    <td>@lang('Environment')</td>
+                    <td><b>{{ App::environment() }}</b></td>
                 </tr>
                 <tr>
                     <td>@lang('System locales')</td>

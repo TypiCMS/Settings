@@ -9,7 +9,9 @@
     <div class="row">
         <div class="col-sm-9 form-group">
             <div class="input-group">
-                <span class="input-group-addon">{{ strtoupper($lang) }}</span>
+                <div class="input-group-prepend">
+                    <span class="input-group-text">{{ strtoupper($lang) }}</span>
+                </div>
                 <input class="form-control" type="text" name="{{ $lang }}[website_title]" value="{{ $data->$lang->website_title ?? '' }}">
             </div>
         </div>
@@ -26,7 +28,9 @@
 @foreach ($locales as $lang)
     <div class="form-group">
         <div class="input-group">
-            <span class="input-group-addon">{{ strtoupper($lang) }}</span>
+            <div class="input-group-prepend">
+                <span class="input-group-text">{{ strtoupper($lang) }}</span>
+            </div>
             <input class="form-control" type="text" name="{{ $lang }}[website_baseline]" value="{{ $data->$lang->website_baseline ?? '' }}">
         </div>
     </div>
@@ -36,7 +40,7 @@
     {!! BootForm::hidden('image') !!}
     @if (isset($data->image) and $data->image)
     <div class="fieldset-preview">
-        <img class="img-responsive" src="{{ Storage::url('settings/'.$data->image) }}" alt="">
+        <img class="img-fluid" src="{{ Storage::url('settings/'.$data->image) }}" alt="">
         <small class="text-danger delete-attachment" data-table="settings" data-id="" data-field="image">@lang('Delete')</small>
     </div>
     @endif
