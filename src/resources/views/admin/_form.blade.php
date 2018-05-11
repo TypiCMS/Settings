@@ -15,11 +15,12 @@
                 <input class="form-control" type="text" name="{{ $lang }}[website_title]" value="{{ $data->$lang->website_title ?? '' }}">
             </div>
         </div>
-        <div class="col-sm-3 checkbox">
-            <label>
+        <div class="col-sm-3">
+            <div class="form-check">
                 <input type="hidden" name="{{ $lang }}[status]" value="0">
-                <input type="checkbox" name="{{ $lang }}[status]" value="1" @if (isset($data->$lang) and $data->$lang->status)checked @endif> {{ __('Enabled') }}
-            </label>
+                <input class="form-check-input" type="checkbox" name="{{ $lang }}[status]" id="{{ $lang }}[status]" value="1" @if (isset($data->$lang) and $data->$lang->status)checked @endif>
+                <label class="form-check-label" for="{{ $lang }}[status]">{{ __('Enabled') }}</label>
+            </div>
         </div>
     </div>
 @endforeach
