@@ -47,6 +47,7 @@ class EloquentSetting extends EloquentRepository
     public function allToArray()
     {
         $config = [];
+
         try {
             foreach ($this->findAll() as $object) {
                 $key = $object->key_name;
