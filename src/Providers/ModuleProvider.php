@@ -24,7 +24,7 @@ class ModuleProvider extends ServiceProvider
 
         $this->publishes([
             __DIR__.'/../resources/views' => resource_path('views/vendor/settings'),
-        ], 'typicms-views');
+        ], 'views');
     }
 
     public function register()
