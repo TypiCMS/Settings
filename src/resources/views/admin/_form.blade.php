@@ -6,23 +6,33 @@
 
 <label>{{ __('Website title') }}</label>
 @foreach ($locales as $lang)
-    <div class="row">
-        <div class="col-sm-9 form-group">
-            <div class="input-group">
-                <div class="input-group-prepend">
-                    <span class="input-group-text">{{ strtoupper($lang) }}</span>
-                </div>
-                <input class="form-control" type="text" name="{{ $lang }}[website_title]" value="{{ $data->$lang->website_title ?? '' }}">
+    <div class="form-group">
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text">{{ strtoupper($lang) }}</span>
             </div>
-        </div>
-        <div class="col-sm-3">
-            <div class="form-check">
-                <input type="hidden" name="{{ $lang }}[status]" value="0">
-                <input class="form-check-input" type="checkbox" name="{{ $lang }}[status]" id="{{ $lang }}[status]" value="1" @if (isset($data->$lang) and $data->$lang->status)checked @endif>
-                <label class="form-check-label" for="{{ $lang }}[status]">{{ __('Enabled') }}</label>
-            </div>
+            <input class="form-control" type="text" name="{{ $lang }}[website_title]" value="{{ $data->$lang->website_title ?? '' }}">
         </div>
     </div>
+@endforeach
+
+<label>{{ __('Publish website') }}</label>
+@foreach ($locales as $lang)
+<div class="form-group">
+    <div class="input-group">
+        <div class="input-group-prepend">
+            <span class="input-group-text">
+                {{ strtoupper($lang) }}
+            </span>
+            <span class="input-group-text">
+                <input type="hidden" name="{{ $lang }}[status]" value="0">
+                <input type="checkbox" name="{{ $lang }}[status]" id="{{ $lang }}[status]" value="1" @if (isset($data->$lang) and $data->$lang->status)checked @endif>
+            </span>
+        </div>
+        <div class="form-check">
+        </div>
+    </div>
+</div>
 @endforeach
 
 <label>{{ __('Website baseline') }}</label>
