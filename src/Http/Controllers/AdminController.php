@@ -72,7 +72,7 @@ class AdminController extends BaseAdminController
     {
         if ($filename = Setting::where('key_name', 'image')->value('value')) {
             try {
-                Croppa::delete('storage/settings/'.$filename);
+                Croppa::delete('settings/'.$filename);
             } catch (Exception $e) {
                 Log::info($e->getMessage());
             }
