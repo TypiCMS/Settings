@@ -4,7 +4,7 @@ namespace TypiCMS\Modules\Settings\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Settings;
-use TypiCMS\Modules\Settings\Repositories\EloquentSetting;
+use TypiCMS\Modules\Settings\Models\Setting;
 
 class ModuleProvider extends ServiceProvider
 {
@@ -36,6 +36,6 @@ class ModuleProvider extends ServiceProvider
          */
         $app->register(RouteServiceProvider::class);
 
-        $app->bind('Settings', EloquentSetting::class);
+        $app->bind('Settings', Setting::class);
     }
 }

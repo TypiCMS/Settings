@@ -10,15 +10,9 @@ use Illuminate\Support\Facades\Log;
 use TypiCMS\Modules\Core\Http\Controllers\BaseAdminController;
 use TypiCMS\Modules\Core\Services\FileUploader;
 use TypiCMS\Modules\Settings\Models\Setting;
-use TypiCMS\Modules\Settings\Repositories\EloquentSetting;
 
 class AdminController extends BaseAdminController
 {
-    public function __construct(EloquentSetting $setting)
-    {
-        parent::__construct($setting);
-    }
-
     /**
      * List models.
      *
@@ -26,7 +20,7 @@ class AdminController extends BaseAdminController
      */
     public function index()
     {
-        $data = $this->repository->all();
+        $data = $this->model->all();
 
         return view('settings::admin.index')
             ->with(compact('data'));
@@ -56,7 +50,7 @@ class AdminController extends BaseAdminController
                 $model = Setting::firstOrCreate(['key_name' => $key_name, 'group_name' => $group_name]);
                 $model->value = $value;
                 $model->save();
-                $this->repository->forgetCache();
+                $this->model->forgetCache();
             }
         }
 
@@ -78,7 +72,7 @@ class AdminController extends BaseAdminController
             }
         }
         Setting::where('key_name', 'image')->delete();
-        $this->repository->forgetCache();
+        $this->model->forgetCache();
     }
 
     /**
