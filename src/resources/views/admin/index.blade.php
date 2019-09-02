@@ -20,8 +20,8 @@
     </div>
 
     <div class="col-sm-6">
-        @if (config('rinvex.repository.cache.lifetime') !== 0)
-        <div>
+        @if (config('laravel-model-caching.enabled'))
+        <div class="mb-5 pull-right">
             <a href="{{ route('admin::clear-cache') }}" class="btn btn-light"><span class="fa fa-trash-o"></span> {{ __('Clear cache') }}</a>
         </div>
         @endif
@@ -49,7 +49,7 @@
                 </tr>
                 <tr>
                     <td>@lang('Cache')</td>
-                    <td><b>{{ config('rinvex.repository.cache.lifetime') !== 0 ? __('Yes') : __('No') }}</b></td>
+                    <td><b>{{ config('laravel-model-caching.enabled') ? __('Yes') : __('No') }}</b></td>
                 </tr>
             </tbody>
         </table>
