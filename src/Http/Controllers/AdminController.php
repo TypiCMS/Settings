@@ -4,21 +4,18 @@ namespace TypiCMS\Modules\Settings\Http\Controllers;
 
 use Croppa;
 use Exception;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Log;
+use Illuminate\View\View;
 use TypiCMS\Modules\Core\Http\Controllers\BaseAdminController;
 use TypiCMS\Modules\Core\Services\FileUploader;
 use TypiCMS\Modules\Settings\Models\Setting;
 
 class AdminController extends BaseAdminController
 {
-    /**
-     * List models.
-     *
-     * @return \Illuminate\View\View
-     */
-    public function index()
+    public function index(): View
     {
         $data = $this->model->all();
 
@@ -26,12 +23,7 @@ class AdminController extends BaseAdminController
             ->with(compact('data'));
     }
 
-    /**
-     * Save settings.
-     *
-     * @return \Illuminate\Http\RedirectResponse
-     */
-    public function save(Request $request, FileUploader $fileUploader)
+    public function save(Request $request, FileUploader $fileUploader): RedirectResponse
     {
         $data = $request->except('_token');
 
@@ -50,19 +42,13 @@ class AdminController extends BaseAdminController
                 $model = Setting::firstOrCreate(['key_name' => $key_name, 'group_name' => $group_name]);
                 $model->value = $value;
                 $model->save();
-                $this->model->forgetCache();
             }
         }
 
         return redirect()->route('admin::index-settings');
     }
 
-    /**
-     * Delete image.
-     *
-     * @return null
-     */
-    public function deleteImage()
+    public function deleteImage(): void
     {
         if ($filename = Setting::where('key_name', 'image')->value('value')) {
             try {
@@ -72,15 +58,9 @@ class AdminController extends BaseAdminController
             }
         }
         Setting::where('key_name', 'image')->delete();
-        $this->model->forgetCache();
     }
 
-    /**
-     * Clear app cache.
-     *
-     * @return \Illuminate\Http\RedirectResponse
-     */
-    public function clearCache()
+    public function clearCache(): RedirectResponse
     {
         Cache::flush();
         $message = __('Cache cleared.');
