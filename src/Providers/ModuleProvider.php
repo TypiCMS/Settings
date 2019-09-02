@@ -3,7 +3,6 @@
 namespace TypiCMS\Modules\Settings\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use Settings;
 use TypiCMS\Modules\Settings\Models\Setting;
 
 class ModuleProvider extends ServiceProvider
