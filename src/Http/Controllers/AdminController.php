@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Log;
 use Illuminate\View\View;
+use stdClass;
 use TypiCMS\Modules\Core\Http\Controllers\BaseAdminController;
 use TypiCMS\Modules\Core\Services\FileUploader;
 use TypiCMS\Modules\Settings\Models\Setting;
@@ -17,7 +18,20 @@ class AdminController extends BaseAdminController
 {
     public function index(): View
     {
-        $data = $this->model->all();
+        $data = new stdClass();
+        foreach (Setting::get() as $model) {
+            $value = is_numeric($model->value) ? (int) $model->value : $model->value;
+            $group_name = $model->group_name;
+            $key_name = $model->key_name;
+            if ($group_name != 'config') {
+                if (!isset($data->$group_name)) {
+                    $data->$group_name = new stdClass();
+                }
+                $data->$group_name->$key_name = $value;
+            } else {
+                $data->$key_name = $value;
+            }
+        }
 
         return view('settings::admin.index')
             ->with(compact('data'));
