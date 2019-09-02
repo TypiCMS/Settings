@@ -4,6 +4,7 @@ namespace TypiCMS\Modules\Settings\Models;
 
 use Eloquent;
 use Exception;
+use Illuminate\Support\Facades\Log;
 
 class Setting extends Eloquent
 {
@@ -33,8 +34,8 @@ class Setting extends Eloquent
                     $config[$key] = $object->value;
                 }
             }
-        } catch (Exception $e) {
-            Log::error($e->getMessage());
+        } catch (Exception $exception) {
+            Log::error($exception->getMessage());
         }
 
         return $config;
