@@ -14,13 +14,6 @@ class Setting extends Eloquent
         'value',
     ];
 
-    /**
-     * The database table used by the model.
-     *
-     * @var string
-     */
-    protected $table = 'settings';
-
     public function allToArray()
     {
         $config = [];
