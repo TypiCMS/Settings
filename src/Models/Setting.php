@@ -14,7 +14,7 @@ class Setting extends Eloquent
         'value',
     ];
 
-    public function allToArray()
+    public function allToArray(): array
     {
         $config = [];
 
