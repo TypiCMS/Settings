@@ -8,7 +8,7 @@
 
 <div class="row">
 
-    <div class="col-sm-6">
+    <div class="col-lg-6">
 
     {!! BootForm::open()->multipart() !!}
     {!! BootForm::bind($data) !!}
@@ -19,20 +19,17 @@
 
     </div>
 
-    <div class="col-sm-6">
+    <div class="col-lg-6">
         @if (config('laravel-model-caching.enabled'))
         <div class="mb-5 pull-right">
             <a href="{{ route('admin::clear-cache') }}" class="btn btn-light"><span class="fa fa-trash-o"></span> {{ __('Clear cache') }}</a>
         </div>
         @endif
 
-        <table class="table table-condensed">
-            <thead>
-                <tr><th colspan="2">{{ __('System info') }}</th></tr>
-            </thead>
+        <table class="table table-sm table-striped">
             <tbody>
                 <tr>
-                    <td>@lang('Environment')</td>
+                    <td class="w-25">@lang('Environment')</td>
                     <td><b>{{ App::environment() }}</b></td>
                 </tr>
                 <tr>
