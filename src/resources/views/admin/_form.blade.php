@@ -17,23 +17,16 @@
 @endforeach
 
 <label>{{ __('Publish website') }}</label>
+
+<div class="d-flex flex-row mb-3">
 @foreach ($locales as $lang)
-<div class="form-group">
-    <div class="input-group">
-        <div class="input-group-prepend">
-            <span class="input-group-text">
-                {{ strtoupper($lang) }}
-            </span>
-            <span class="input-group-text">
-                <input type="hidden" name="{{ $lang }}[status]" value="0">
-                <input type="checkbox" name="{{ $lang }}[status]" id="{{ $lang }}[status]" value="1" @if (isset($data->$lang) and $data->$lang->status)checked @endif>
-            </span>
-        </div>
-        <div class="form-check">
-        </div>
-    </div>
+<div class="custom-control custom-switch mr-4">
+    <input type="hidden" name="{{ $lang }}[status]" value="0">
+    <input class="custom-control-input" type="checkbox" name="{{ $lang }}[status]" id="{{ $lang }}[status]" value="1" @if (isset($data->$lang) and $data->$lang->status)checked @endif>
+    <label class="custom-control-label" for="{{ $lang }}[status]">{{ strtoupper($lang) }}</label>
 </div>
 @endforeach
+</div>
 
 <label>{{ __('Website baseline') }}</label>
 @foreach ($locales as $lang)
