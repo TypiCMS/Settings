@@ -27,10 +27,10 @@ class RouteServiceProvider extends ServiceProvider
              * Admin routes
              */
             $router->middleware('admin')->prefix('admin')->group(function (Router $router) {
-                $router->get('settings', 'AdminController@index')->name('admin::index-settings')->middleware('can:see-settings');
-                $router->post('settings', 'AdminController@save')->name('admin::update-settings')->middleware('can:update-setting');
-                $router->get('cache/clear', 'AdminController@clearCache')->name('admin::clear-cache')->middleware('can:clear-cache');
-                $router->patch('settings', 'AdminController@deleteImage')->middleware('can:update-setting');
+                $router->get('settings', 'AdminController@index')->name('admin::index-settings')->middleware('can:read settings');
+                $router->post('settings', 'AdminController@save')->name('admin::update-settings')->middleware('can:update settings');
+                $router->get('cache/clear', 'AdminController@clearCache')->name('admin::clear-cache')->middleware('can:clear cache');
+                $router->patch('settings', 'AdminController@deleteImage')->middleware('can:update settings');
             });
         });
     }
