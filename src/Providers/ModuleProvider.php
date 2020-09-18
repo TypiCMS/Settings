@@ -19,7 +19,10 @@ class ModuleProvider extends ServiceProvider
         $this->app['config']->set('typicms', array_merge($TypiCMSConfig, $config));
 
         $this->loadViewsFrom(__DIR__.'/../resources/views/', 'settings');
-        $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
+
+        $this->publishes([
+            __DIR__.'/../database/migrations/create_settings_table.php.stub' => getMigrationFileName('create_settings_table'),
+        ], 'migrations');
 
         $this->publishes([
             __DIR__.'/../resources/views' => resource_path('views/vendor/settings'),
