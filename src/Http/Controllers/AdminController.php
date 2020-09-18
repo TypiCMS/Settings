@@ -24,12 +24,12 @@ class AdminController extends BaseAdminController
             $group_name = $model->group_name;
             $key_name = $model->key_name;
             if ($group_name != 'config') {
-                if (!isset($data->$group_name)) {
-                    $data->$group_name = new stdClass();
+                if (!isset($data->{$group_name})) {
+                    $data->{$group_name} = new stdClass();
                 }
-                $data->$group_name->$key_name = $value;
+                $data->{$group_name}->{$key_name} = $value;
             } else {
-                $data->$key_name = $value;
+                $data->{$key_name} = $value;
             }
         }
 
