@@ -5,7 +5,7 @@ namespace TypiCMS\Modules\Settings\Providers;
 use Illuminate\Support\ServiceProvider;
 use TypiCMS\Modules\Settings\Models\Setting;
 
-class ModuleProvider extends ServiceProvider
+class ModuleServiceProvider extends ServiceProvider
 {
     public function boot()
     {
