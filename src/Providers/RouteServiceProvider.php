@@ -14,16 +14,14 @@ class RouteServiceProvider extends ServiceProvider
      */
     public function map()
     {
-        Route::namespace($this->namespace)->group(function (Router $router) {
-            /*
-             * Admin routes
-             */
-            $router->middleware('admin')->prefix('admin')->group(function (Router $router) {
-                $router->get('settings', [AdminController::class, 'index'])->name('admin::index-settings')->middleware('can:read settings');
-                $router->post('settings', [AdminController::class, 'save'])->name('admin::update-settings')->middleware('can:update settings');
-                $router->get('cache/clear', [AdminController::class, 'clearCache'])->name('admin::clear-cache')->middleware('can:clear cache');
-                $router->patch('settings', [AdminController::class, 'deleteImage'])->middleware('can:update settings');
-            });
+        /*
+         * Admin routes
+         */
+        Route::middleware('admin')->prefix('admin')->name('admin::')->group(function (Router $router) {
+            $router->get('settings', [AdminController::class, 'index'])->name('index-settings')->middleware('can:read settings');
+            $router->post('settings', [AdminController::class, 'save'])->name('update-settings')->middleware('can:update settings');
+            $router->get('cache/clear', [AdminController::class, 'clearCache'])->name('clear-cache')->middleware('can:clear cache');
+            $router->patch('settings', [AdminController::class, 'deleteImage'])->middleware('can:update settings');
         });
     }
 }
