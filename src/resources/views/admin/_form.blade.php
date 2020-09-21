@@ -58,7 +58,8 @@
     {!! BootForm::textarea(__('Administration Welcome Message'), 'welcome_message') !!}
 @endif
 {!! BootForm::select(__('Administration Language'), 'admin_locale', array_combine($locales, $locales))->addClass('custom-select') !!}
-{!! BootForm::text(__('Google Analytics Tracking Id'), 'google_analytics_code') !!}
+{!! BootForm::text(__('Twitter site'), 'twitter_site') !!}
+{!! BootForm::text(__('Facebook app id'), 'facebook_app_id') !!}
 {!! BootForm::hidden('lang_chooser')->value(0) !!}
 @if (config('typicms.main_locale_in_url'))
     {!! BootForm::checkbox(__('Lang Chooser'), 'lang_chooser') !!}
