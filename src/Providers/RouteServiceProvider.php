@@ -9,9 +9,6 @@ use TypiCMS\Modules\Settings\Http\Controllers\AdminController;
 
 class RouteServiceProvider extends ServiceProvider
 {
-    /**
-     * Define the routes for the application.
-     */
     public function map()
     {
         /*
