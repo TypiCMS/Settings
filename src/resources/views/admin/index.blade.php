@@ -22,7 +22,7 @@
     <div class="col-lg-6">
         @if (config('laravel-model-caching.enabled'))
         <div class="mb-5 pull-right">
-            <a href="{{ route('admin::clear-cache') }}" class="btn btn-light"><span class="fa fa-trash-o"></span> {{ __('Clear cache') }}</a>
+            <a href="{{ route('admin::clear-cache') }}" class="btn btn-light">{{ __('Clear cache') }}</a>
         </div>
         @endif
 
