@@ -27,6 +27,10 @@ class ModuleServiceProvider extends ServiceProvider
         $this->publishes([
             __DIR__.'/../resources/views' => resource_path('views/vendor/settings'),
         ], 'views');
+
+        $this->publishes([
+            __DIR__.'/../database/seeds/SettingsSeeder.php' => database_path('seeds/SettingsSeeder.php'),
+        ], 'seeders');
     }
 
     public function register()
