@@ -29,7 +29,7 @@ class ModuleServiceProvider extends ServiceProvider
         ], 'views');
 
         $this->publishes([
-            __DIR__.'/../database/seeds/SettingsSeeder.php' => database_path('seeds/SettingsSeeder.php'),
+            __DIR__.'/../database/seeders/SettingsSeeder.php' => database_path('seeders/SettingsSeeder.php'),
         ], 'seeders');
     }
 
