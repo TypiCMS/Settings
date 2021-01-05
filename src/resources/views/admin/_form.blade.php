@@ -4,7 +4,7 @@
     </div>
 </div>
 
-<label>{{ __('Website title') }}</label>
+<label class="form-label">{{ __('Website title') }}</label>
 @foreach ($locales as $lang)
     <div class="mb-3">
         <div class="input-group">
@@ -16,7 +16,7 @@
     </div>
 @endforeach
 
-<label>{{ __('Publish website') }}</label>
+<label class="form-label">{{ __('Publish website') }}</label>
 
 <div class="mb-3">
 @foreach ($locales as $lang)
@@ -28,7 +28,7 @@
 @endforeach
 </div>
 
-<label>{{ __('Website baseline') }}</label>
+<label class="form-label">{{ __('Website baseline') }}</label>
 @foreach ($locales as $lang)
     <div class="mb-3">
         <div class="input-group">
