@@ -1,12 +1,12 @@
 <div class="row">
-    <div class="form-group col-sm-12">
+    <div class="mb-3 col-sm-12">
         <button class="btn-primary btn" type="submit">{{ __('Save') }}</button>
     </div>
 </div>
 
 <label>{{ __('Website title') }}</label>
 @foreach ($locales as $lang)
-    <div class="form-group">
+    <div class="mb-3">
         <div class="input-group">
             <div class="input-group-prepend">
                 <span class="input-group-text">{{ strtoupper($lang) }}</span>
@@ -30,7 +30,7 @@
 
 <label>{{ __('Website baseline') }}</label>
 @foreach ($locales as $lang)
-    <div class="form-group">
+    <div class="mb-3">
         <div class="input-group">
             <div class="input-group-prepend">
                 <span class="input-group-text">{{ strtoupper($lang) }}</span>
