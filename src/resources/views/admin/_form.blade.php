@@ -8,9 +8,7 @@
 @foreach ($locales as $lang)
     <div class="mb-3">
         <div class="input-group">
-            <div class="input-group-prepend">
-                <span class="input-group-text">{{ strtoupper($lang) }}</span>
-            </div>
+            <span class="input-group-text">{{ strtoupper($lang) }}</span>
             <input class="form-control" type="text" name="{{ $lang }}[website_title]" value="{{ $data->$lang->website_title ?? '' }}">
         </div>
     </div>
@@ -32,9 +30,7 @@
 @foreach ($locales as $lang)
     <div class="mb-3">
         <div class="input-group">
-            <div class="input-group-prepend">
-                <span class="input-group-text">{{ strtoupper($lang) }}</span>
-            </div>
+            <span class="input-group-text">{{ strtoupper($lang) }}</span>
             <input class="form-control" type="text" name="{{ $lang }}[website_baseline]" value="{{ $data->$lang->website_baseline ?? '' }}">
         </div>
     </div>
