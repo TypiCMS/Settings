@@ -53,7 +53,7 @@
 @if (!config('typicms.welcome_message_url'))
     {!! BootForm::textarea(__('Administration Welcome Message'), 'welcome_message') !!}
 @endif
-{!! BootForm::select(__('Administration Language'), 'admin_locale', array_combine($locales, $locales))->addClass('custom-select') !!}
+{!! BootForm::select(__('Administration Language'), 'admin_locale', array_combine($locales, $locales)) !!}
 {!! BootForm::text(__('Twitter'), 'twitter_site')->placeholder('@') !!}
 {!! BootForm::text(__('Facebook App ID'), 'facebook_app_id') !!}
 {!! BootForm::hidden('lang_chooser')->value(0) !!}
