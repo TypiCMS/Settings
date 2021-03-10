@@ -18,18 +18,18 @@ class ModuleServiceProvider extends ServiceProvider
         $config = $this->app['config']->get('typicms', []);
         $this->app['config']->set('typicms', array_merge($TypiCMSConfig, $config));
 
-        $this->loadViewsFrom(__DIR__.'/../resources/views/', 'settings');
+        $this->loadViewsFrom(__DIR__.'/../../resources/views/', 'settings');
 
         $this->publishes([
-            __DIR__.'/../database/migrations/create_settings_table.php.stub' => getMigrationFileName('create_settings_table'),
+            __DIR__.'/../../database/migrations/create_settings_table.php.stub' => getMigrationFileName('create_settings_table'),
         ], 'migrations');
 
         $this->publishes([
-            __DIR__.'/../resources/views' => resource_path('views/vendor/settings'),
+            __DIR__.'/../../resources/views' => resource_path('views/vendor/settings'),
         ], 'views');
 
         $this->publishes([
-            __DIR__.'/../database/seeders/SettingsSeeder.php' => database_path('seeders/SettingsSeeder.php'),
+            __DIR__.'/../../database/seeders/SettingsSeeder.php' => database_path('seeders/SettingsSeeder.php'),
         ], 'seeders');
     }
 
