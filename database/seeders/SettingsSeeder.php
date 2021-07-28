@@ -14,7 +14,7 @@ class SettingsSeeder extends Seeder
 
         $typi_settings = [
             ['id' => 1, 'group_name' => 'config', 'key_name' => 'webmaster_email', 'value' => 'info@example.com', 'created_at' => Carbon::now(), 'updated_at' => Carbon::now()],
-            ['id' => 2, 'group_name' => 'config', 'key_name' => 'lang_chooser', 'value' => '1', 'created_at' => Carbon::now(), 'updated_at' => Carbon::now()],
+            ['id' => 2, 'group_name' => 'config', 'key_name' => 'lang_chooser', 'value' => '0', 'created_at' => Carbon::now(), 'updated_at' => Carbon::now()],
             ['id' => 3, 'group_name' => 'fr', 'key_name' => 'website_title', 'value' => 'Site web sans titre', 'created_at' => Carbon::now(), 'updated_at' => Carbon::now()],
             ['id' => 4, 'group_name' => 'fr', 'key_name' => 'status', 'value' => '1', 'created_at' => Carbon::now(), 'updated_at' => Carbon::now()],
             ['id' => 5, 'group_name' => 'nl', 'key_name' => 'website_title', 'value' => 'Untitled website', 'created_at' => Carbon::now(), 'updated_at' => Carbon::now()],
