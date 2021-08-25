@@ -8,6 +8,7 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\View\View;
 use stdClass;
 use TypiCMS\Modules\Core\Http\Controllers\BaseAdminController;
@@ -39,12 +40,17 @@ class AdminController extends BaseAdminController
 
     public function save(Request $request, FileUploader $fileUploader): RedirectResponse
     {
-        $data = $request->except('_token');
+        $data = $request->except('_token', 'image');
 
         if ($request->hasFile('image')) {
-            $file = $fileUploader->handle($request->file('image'), 'settings');
-            $this->deleteImage();
-            $data['image'] = $file['filename'];
+            $validator = Validator::make($request->all(), [
+                'image' => 'image',
+            ]);
+            if ($validator->passes()) {
+                $file = $fileUploader->handle($request->file('image'), 'settings');
+                $this->deleteImage();
+                $data['image'] = $file['filename'];
+            }
         }
 
         foreach ($data as $group_name => $array) {
