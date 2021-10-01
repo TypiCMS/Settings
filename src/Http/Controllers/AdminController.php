@@ -2,7 +2,7 @@
 
 namespace TypiCMS\Modules\Settings\Http\Controllers;
 
-use Croppa;
+use Bkwld\Croppa\Facade as Croppa;
 use Exception;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
