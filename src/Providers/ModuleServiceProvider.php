@@ -7,7 +7,7 @@ use TypiCMS\Modules\Settings\Models\Setting;
 
 class ModuleServiceProvider extends ServiceProvider
 {
-    public function boot()
+    public function boot(): void
     {
         /*
          * Get configuration from DB and store it in the container
@@ -33,15 +33,10 @@ class ModuleServiceProvider extends ServiceProvider
         ], 'seeders');
     }
 
-    public function register()
+    public function register(): void
     {
-        $app = $this->app;
+        $this->app->register(RouteServiceProvider::class);
 
-        /*
-         * Register route service provider
-         */
-        $app->register(RouteServiceProvider::class);
-
-        $app->bind('Settings', Setting::class);
+        $this->app->bind('Settings', Setting::class);
     }
 }
